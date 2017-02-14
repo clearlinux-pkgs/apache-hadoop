@@ -1,0 +1,36 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+apache-ant
+jdk-bsh
+jdk-cglib
+jdk-doxia-integration-tools
+jdk-easymock3
+jdk-eclipse-eclipse
+jdk-enforcer
+jdk-felix
+jdk-felix-osgi-foundation
+jdk-glassfish-servlet-api
+jdk-jna
+jdk-jsch
+jdk-jsch-agent-proxy
+jdk-maven-antrun-plugin
+jdk-maven-artifact-resolver
+jdk-maven-common-artifact-filters
+jdk-maven-compiler-plugin
+jdk-maven-filtering
+jdk-maven-jar-plugin
+jdk-maven-javadoc-plugin
+jdk-maven-plugin-testing
+jdk-maven-plugin-tools
+jdk-maven-remote-resources-plugin
+jdk-maven-reporting-exec
+jdk-maven-resources-plugin
+jdk-maven-shared-incremental
+jdk-maven-site-plugin
+jdk-objenesis
+jdk-parboiled
+jdk-pegdown
+jdk-plexus-compiler
+jdk-plexus-interactivity
+jdk-plexus-resources
+jdk-surefire
