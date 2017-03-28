@@ -72,13 +72,9 @@ rm %{buildroot}/usr/share/apache-hadoop/bin/*.bat
 rm %{buildroot}/usr/share/apache-hadoop/bin/*.cmd
 rm -rf %{buildroot}/usr/share/apache-hadoop/windows
 
-# Create symlinks for binaries
-mkdir -p %{buildroot}/usr/bin
-ln -s ../share/apache-hadoop/bin/hadoop %{buildroot}/usr/bin/hadoop
-ln -s ../share/apache-hadoop/bin/hdfs %{buildroot}/usr/bin/hdfs
-ln -s ../share/apache-hadoop/bin/mapred %{buildroot}/usr/bin/mapred
-ln -s ../share/apache-hadoop/bin/rcc %{buildroot}/usr/bin/rcc
-ln -s ../share/apache-hadoop/bin/yarn %{buildroot}/usr/bin/yarn
+# Binaries
+mv %{buildroot}/usr/share/apache-hadoop/bin  %{buildroot}/usr
+mv %{buildroot}/usr/share/apache-hadoop/libexec  %{buildroot}/usr
 
 %files
 %defattr(-,root,root,-)
@@ -90,11 +86,35 @@ ln -s ../share/apache-hadoop/bin/yarn %{buildroot}/usr/bin/yarn
 #/usr/share/apache-hadoop/lib/native/libhdfs.a
 #/usr/share/apache-hadoop/lib/native/libhdfs.so
 #/usr/share/apache-hadoop/lib/native/libhdfs.so.0.0.0
+/usr/bin/bootstrap.jar
+/usr/bin/catalina-tasks.xml
+/usr/bin/catalina.sh
+/usr/bin/commons-daemon-native.tar.gz
+/usr/bin/commons-daemon.jar
+/usr/bin/daemon.sh
+/usr/bin/digest.sh
 /usr/bin/hadoop
 /usr/bin/hdfs
 /usr/bin/mapred
 /usr/bin/rcc
+/usr/bin/setclasspath.sh
+/usr/bin/shutdown.sh
+/usr/bin/startup.sh
+/usr/bin/tomcat-juli.jar
+/usr/bin/tomcat-native.tar.gz
+/usr/bin/tool-wrapper.sh
+/usr/bin/version.sh
 /usr/bin/yarn
+/usr/libexec/hadoop-config.cmd
+/usr/libexec/hadoop-config.sh
+/usr/libexec/hdfs-config.cmd
+/usr/libexec/hdfs-config.sh
+/usr/libexec/httpfs-config.sh
+/usr/libexec/kms-config.sh
+/usr/libexec/mapred-config.cmd
+/usr/libexec/mapred-config.sh
+/usr/libexec/yarn-config.cmd
+/usr/libexec/yarn-config.sh
 /usr/share/apache-hadoop/CHANGELOG.txt
 /usr/share/apache-hadoop/LICENSE
 /usr/share/apache-hadoop/LICENSE.txt
@@ -106,25 +126,6 @@ ln -s ../share/apache-hadoop/bin/yarn %{buildroot}/usr/bin/yarn
 /usr/share/apache-hadoop/RELEASE-NOTES.txt
 /usr/share/apache-hadoop/RUNNING.txt
 /usr/share/apache-hadoop/TODO.txt
-/usr/share/apache-hadoop/bin/bootstrap.jar
-/usr/share/apache-hadoop/bin/catalina-tasks.xml
-/usr/share/apache-hadoop/bin/catalina.sh
-/usr/share/apache-hadoop/bin/commons-daemon-native.tar.gz
-/usr/share/apache-hadoop/bin/commons-daemon.jar
-/usr/share/apache-hadoop/bin/daemon.sh
-/usr/share/apache-hadoop/bin/digest.sh
-/usr/share/apache-hadoop/bin/hadoop
-/usr/share/apache-hadoop/bin/hdfs
-/usr/share/apache-hadoop/bin/mapred
-/usr/share/apache-hadoop/bin/rcc
-/usr/share/apache-hadoop/bin/setclasspath.sh
-/usr/share/apache-hadoop/bin/shutdown.sh
-/usr/share/apache-hadoop/bin/startup.sh
-/usr/share/apache-hadoop/bin/tomcat-juli.jar
-/usr/share/apache-hadoop/bin/tomcat-native.tar.gz
-/usr/share/apache-hadoop/bin/tool-wrapper.sh
-/usr/share/apache-hadoop/bin/version.sh
-/usr/share/apache-hadoop/bin/yarn
 /usr/share/apache-hadoop/conf/catalina.policy
 /usr/share/apache-hadoop/conf/catalina.properties
 /usr/share/apache-hadoop/conf/context.xml
@@ -355,16 +356,6 @@ ln -s ../share/apache-hadoop/bin/yarn %{buildroot}/usr/bin/yarn
 /usr/share/apache-hadoop/lib/tomcat-i18n-es.jar
 /usr/share/apache-hadoop/lib/tomcat-i18n-fr.jar
 /usr/share/apache-hadoop/lib/tomcat-i18n-ja.jar
-/usr/share/apache-hadoop/libexec/hadoop-config.cmd
-/usr/share/apache-hadoop/libexec/hadoop-config.sh
-/usr/share/apache-hadoop/libexec/hdfs-config.cmd
-/usr/share/apache-hadoop/libexec/hdfs-config.sh
-/usr/share/apache-hadoop/libexec/httpfs-config.sh
-/usr/share/apache-hadoop/libexec/kms-config.sh
-/usr/share/apache-hadoop/libexec/mapred-config.cmd
-/usr/share/apache-hadoop/libexec/mapred-config.sh
-/usr/share/apache-hadoop/libexec/yarn-config.cmd
-/usr/share/apache-hadoop/libexec/yarn-config.sh
 /usr/share/apache-hadoop/name/current/VERSION
 /usr/share/apache-hadoop/name/current/edits_0000000000000000005-0000000000000000006
 /usr/share/apache-hadoop/name/current/fsimage_0000000000000000004
