@@ -1,0 +1,25 @@
+From a9d1e3c4379b4fb94a1a2a31dc44e8ca34f5c952 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez <athenas.jimenez.gonzalez@intel.com>
+Date: Mon, 13 Mar 2017 19:06:13 +0000
+Subject: [PATCH] Change protobuf version
+
+---
+ hadoop-project/pom.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/hadoop-project/pom.xml b/hadoop-project/pom.xml
+index b646304..d566436 100644
+--- a/hadoop-project/pom.xml
++++ b/hadoop-project/pom.xml
+@@ -72,7 +72,7 @@
+ 
+     <!-- ProtocolBuffer version, used to verify the protoc version and -->
+     <!-- define the protobuf JAR version                               -->
+-    <protobuf.version>2.5.0</protobuf.version>
++    <protobuf.version>3.2.0</protobuf.version>
+     <protoc.path>${env.HADOOP_PROTOC_PATH}</protoc.path>
+ 
+     <zookeeper.version>3.4.6</zookeeper.version>
+-- 
+2.12.0
+
