@@ -8,35 +8,9 @@ Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause
 BuildRequires : hadoop-dep
-Buildrequires : apache-maven
 BuildRequires : openjdk-dev
-BuildRequires : jdk-plexus-classworlds
-BuildRequires : jdk-aether
-BuildRequires : jdk-aopalliance
-BuildRequires : jdk-atinject
-BuildRequires : jdk-cdi-api
-BuildRequires : jdk-commons-cli
-BuildRequires : jdk-commons-codec
-BuildRequires : jdk-commons-io
-BuildRequires : jdk-commons-lang
-BuildRequires : jdk-commons-lang3
-BuildRequires : jdk-commons-logging
-BuildRequires : jdk-guice
-BuildRequires : jdk-guava
-BuildRequires : jdk-httpcomponents-client
-BuildRequires : jdk-httpcomponents-core
-BuildRequires : jdk-jsoup
-BuildRequires : jdk-jsr-305
-BuildRequires : jdk-wagon
-BuildRequires : jdk-objectweb-asm
-BuildRequires : jdk-sisu
-BuildRequires : jdk-plexus-containers
-BuildRequires : jdk-plexus-interpolation
-BuildRequires : jdk-plexus-cipher
-BuildRequires : jdk-plexus-sec-dispatcher
-BuildRequires : jdk-plexus-utils
-BuildRequires : jdk-slf4j
 BuildRequires : protobuf
+Buildrequires : apache-maven
 Patch0   : 0001-Change-protobuf-version.patch
 Patch1   : protobuf3.patch
 
