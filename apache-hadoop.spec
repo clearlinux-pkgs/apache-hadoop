@@ -11,6 +11,9 @@ BuildRequires : hadoop-dep
 BuildRequires : openjdk-dev
 BuildRequires : protobuf
 Buildrequires : apache-maven
+BuildRequires : cmake
+BuildRequires : zlib-dev
+BuildRequires : openssl-dev
 Patch0   : 0001-Change-protobuf-version.patch
 Patch1   : protobuf3.patch
 
@@ -32,9 +35,8 @@ cp %{SOURCE1} hadoop-common-project/hadoop-kms/downloads
 cp %{SOURCE1} hadoop-hdfs-project/hadoop-hdfs-httpfs/downloads
 
 # Build Hadoop
-# TODO compile Hadoop with -Pnative and -Pdocs
-#mvn package -o -Pdist -Pdocs -DskipTests -Dtar -Dmaven.repo.local=%{buildroot}/.m2/repository
-mvn package -o -Pdist -DskipTests -Dtar -Dmaven.repo.local=%{buildroot}/.m2/repository
+# TODO compile Hadoop with -Pdocs, but fails
+mvn package -o -Pnative -Pdist -DskipTests -Dtar -Dmaven.repo.local=%{buildroot}/.m2/repository
 
 %install
 rm -rf %{buildroot}
@@ -44,8 +46,8 @@ mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 
 %files
 %defattr(-,root,root,-)
-#/usr/lib
 %exclude /usr/etc
+/usr/bin/container-executor
 /usr/bin/hadoop
 /usr/bin/hadoop.cmd
 /usr/bin/hdfs
@@ -53,6 +55,7 @@ mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 /usr/bin/mapred
 /usr/bin/mapred.cmd
 /usr/bin/rcc  
+/usr/bin/test-container-executor
 /usr/bin/yarn
 /usr/bin/yarn.cmd
 /usr/include/Pipes.hh
@@ -60,6 +63,14 @@ mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 /usr/include/StringUtils.hh
 /usr/include/TemplateFactory.hh
 /usr/include/hdfs.h
+/usr/lib/native/libhadoop.a
+/usr/lib/native/libhadoop.so
+/usr/lib/native/libhadoop.so.1.0.0
+/usr/lib/native/libhadooppipes.a
+/usr/lib/native/libhadooputils.a
+/usr/lib/native/libhdfs.a
+/usr/lib/native/libhdfs.so
+/usr/lib/native/libhdfs.so.0.0.0
 /usr/libexec/hadoop-config.cmd
 /usr/libexec/hadoop-config.sh
 /usr/libexec/hdfs-config.cmd
@@ -672,6 +683,7 @@ mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 /usr/share/hadoop/tools/lib/api-util-1.0.0-M20.jar
 /usr/share/hadoop/tools/lib/asm-3.2.jar
 /usr/share/hadoop/tools/lib/avro-1.7.4.jar
+/usr/share/hadoop/tools/lib/aws-java-sdk-1.7.4.jar
 /usr/share/hadoop/tools/lib/aws-java-sdk-1.7.4.jar
 /usr/share/hadoop/tools/lib/azure-storage-2.0.0.jar
 /usr/share/hadoop/tools/lib/commons-beanutils-1.7.0.jar
