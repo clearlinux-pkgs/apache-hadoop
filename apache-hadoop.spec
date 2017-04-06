@@ -17,6 +17,7 @@ BuildRequires : zlib-dev
 BuildRequires : openssl-dev
 Patch0   : 0001-Change-protobuf-version.patch
 Patch1   : protobuf3.patch
+Patch2   : 0001-Java_home-on-CLR.patch
 
 %description
 
@@ -24,6 +25,7 @@ Patch1   : protobuf3.patch
 %setup -q -n hadoop-2.7.3-src
 %patch0 -p1 
 %patch1 -p1
+%patch2 -p1
 
 %build
 mkdir -p %{buildroot}

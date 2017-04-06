@@ -1,0 +1,28 @@
+From a34273328dae8111dbcc8bbdac369d356578a372 Mon Sep 17 00:00:00 2001
+From: Athenas Jimenez Gonzalez <athenas.jimenez.gonzalez@intel.com>
+Date: Wed, 5 Apr 2017 21:38:05 +0000
+Subject: [PATCH] Java_home on CLR
+
+---
+ hadoop-common-project/hadoop-common/src/main/bin/hadoop-config.sh | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/hadoop-common-project/hadoop-common/src/main/bin/hadoop-config.sh b/hadoop-common-project/hadoop-common/src/main/bin/hadoop-config.sh
+index e321a5b..6cd84c9 100644
+--- a/hadoop-common-project/hadoop-common/src/main/bin/hadoop-config.sh
++++ b/hadoop-common-project/hadoop-common/src/main/bin/hadoop-config.sh
+@@ -175,6 +175,11 @@ if [[ -z $JAVA_HOME ]]; then
+     fi
+   fi
+ 
++  # On CLR
++  if [ -d /usr/lib/jvm/java-1.8.0-openjdk ]; then
++      export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
++  fi
++
+   # Bail if we did not detect it
+   if [[ -z $JAVA_HOME ]]; then
+     echo "Error: JAVA_HOME is not set and could not be found." 1>&2
+-- 
+2.12.2
+
