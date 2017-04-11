@@ -5,6 +5,7 @@ URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-2.7.3/hadoop-2.7.3-src
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-2.7.3/hadoop-2.7.3-src.tar.gz
 Source1  : http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.44/bin/apache-tomcat-6.0.44.tar.gz
 Source2  : hadoop-layout.sh
+Source3  : https://repo.maven.apache.org/maven2/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final.jar
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause
@@ -48,6 +49,10 @@ mkdir -p %{buildroot}/usr
 tar -xf hadoop-dist/target/hadoop-2.7.3.tar.gz -C %{buildroot}/usr --strip-components=1
 mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 mv %{buildroot}/usr/etc %{buildroot}/usr/share/hadoop/etc
+
+# Fix java.lang.NoClassDefFoundError: io/netty/channel/EventLoopGroup
+cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
+
 
 %files
 %defattr(-,root,root,-)
@@ -191,6 +196,7 @@ mv %{buildroot}/usr/etc %{buildroot}/usr/share/hadoop/etc
 /usr/share/hadoop/common/lib/log4j-1.2.17.jar
 /usr/share/hadoop/common/lib/mockito-all-1.8.5.jar
 /usr/share/hadoop/common/lib/netty-3.6.2.Final.jar
+/usr/share/hadoop/common/lib/netty-all-4.0.23.Final.jar
 /usr/share/hadoop/common/lib/paranamer-2.3.jar
 /usr/share/hadoop/common/lib/protobuf-java-3.2.0.jar
 /usr/share/hadoop/common/lib/servlet-api-2.5.jar
