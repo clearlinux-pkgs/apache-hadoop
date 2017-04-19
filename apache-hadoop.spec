@@ -50,9 +50,11 @@ tar -xf hadoop-dist/target/hadoop-2.7.3.tar.gz -C %{buildroot}/usr --strip-compo
 mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 mv %{buildroot}/usr/etc %{buildroot}/usr/share/hadoop/etc
 
+# Install hadoop-layout.sh
+cp %{SOURCE2} %{buildroot}/usr/libexec/hadoop-layout.sh
+
 # Fix java.lang.NoClassDefFoundError: io/netty/channel/EventLoopGroup
 cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
-
 
 %files
 %defattr(-,root,root,-)
@@ -82,6 +84,7 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/lib/native/libhdfs.so.0.0.0
 /usr/libexec/hadoop-config.cmd
 /usr/libexec/hadoop-config.sh
+/usr/libexec/hadoop-layout.sh
 /usr/libexec/hdfs-config.cmd
 /usr/libexec/hdfs-config.sh
 /usr/libexec/httpfs-config.sh
