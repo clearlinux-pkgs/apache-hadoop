@@ -19,6 +19,7 @@ BuildRequires : openssl-dev
 Patch0   : 0001-Change-protobuf-version.patch
 Patch1   : protobuf3.patch
 Patch2   : 0001-Java_home-on-CLR.patch
+Patch3   : HADOOP-11364.01.patch
 
 %description
 
@@ -27,6 +28,8 @@ Patch2   : 0001-Java_home-on-CLR.patch
 %patch0 -p1 
 %patch1 -p1
 %patch2 -p1
+# https://issues.apache.org/jira/browse/YARN-4714
+%patch3 -p1
 
 %build
 mkdir -p %{buildroot}
