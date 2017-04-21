@@ -53,6 +53,9 @@ tar -xf hadoop-dist/target/hadoop-2.7.3.tar.gz -C %{buildroot}/usr --strip-compo
 mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
 mv %{buildroot}/usr/etc %{buildroot}/usr/share/hadoop/etc
 
+# Remove *.cmd files 
+find %{buildroot}/usr -iname *.cmd -delete
+
 # Install hadoop-layout.sh
 cp %{SOURCE2} %{buildroot}/usr/libexec/hadoop-layout.sh
 
@@ -63,15 +66,11 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 %defattr(-,root,root,-)
 /usr/bin/container-executor
 /usr/bin/hadoop
-/usr/bin/hadoop.cmd
 /usr/bin/hdfs
-/usr/bin/hdfs.cmd
 /usr/bin/mapred
-/usr/bin/mapred.cmd
 /usr/bin/rcc  
 /usr/bin/test-container-executor
 /usr/bin/yarn
-/usr/bin/yarn.cmd
 /usr/include/Pipes.hh
 /usr/include/SerialUtils.hh
 /usr/include/StringUtils.hh
@@ -85,42 +84,31 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/lib/native/libhdfs.a
 /usr/lib/native/libhdfs.so
 /usr/lib/native/libhdfs.so.0.0.0
-/usr/libexec/hadoop-config.cmd
 /usr/libexec/hadoop-config.sh
 /usr/libexec/hadoop-layout.sh
-/usr/libexec/hdfs-config.cmd
 /usr/libexec/hdfs-config.sh
 /usr/libexec/httpfs-config.sh
 /usr/libexec/kms-config.sh
-/usr/libexec/mapred-config.cmd
 /usr/libexec/mapred-config.sh
-/usr/libexec/yarn-config.cmd
 /usr/libexec/yarn-config.sh
 /usr/sbin/distribute-exclude.sh
 /usr/sbin/hadoop-daemon.sh
 /usr/sbin/hadoop-daemons.sh
-/usr/sbin/hdfs-config.cmd
 /usr/sbin/hdfs-config.sh
 /usr/sbin/httpfs.sh
 /usr/sbin/kms.sh
 /usr/sbin/mr-jobhistory-daemon.sh
 /usr/sbin/refresh-namenodes.sh
 /usr/sbin/slaves.sh
-/usr/sbin/start-all.cmd
 /usr/sbin/start-all.sh
 /usr/sbin/start-balancer.sh
-/usr/sbin/start-dfs.cmd
 /usr/sbin/start-dfs.sh
 /usr/sbin/start-secure-dns.sh
-/usr/sbin/start-yarn.cmd
 /usr/sbin/start-yarn.sh
-/usr/sbin/stop-all.cmd
 /usr/sbin/stop-all.sh
 /usr/sbin/stop-balancer.sh
-/usr/sbin/stop-dfs.cmd
 /usr/sbin/stop-dfs.sh
 /usr/sbin/stop-secure-dns.sh
-/usr/sbin/stop-yarn.cmd
 /usr/sbin/stop-yarn.sh
 /usr/sbin/yarn-daemon.sh
 /usr/sbin/yarn-daemons.sh
@@ -220,7 +208,6 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/share/hadoop/etc/hadoop/configuration.xsl
 /usr/share/hadoop/etc/hadoop/container-executor.cfg
 /usr/share/hadoop/etc/hadoop/core-site.xml
-/usr/share/hadoop/etc/hadoop/hadoop-env.cmd
 /usr/share/hadoop/etc/hadoop/hadoop-env.sh
 /usr/share/hadoop/etc/hadoop/hadoop-metrics.properties
 /usr/share/hadoop/etc/hadoop/hadoop-metrics2.properties
@@ -235,14 +222,12 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/share/hadoop/etc/hadoop/kms-log4j.properties
 /usr/share/hadoop/etc/hadoop/kms-site.xml
 /usr/share/hadoop/etc/hadoop/log4j.properties
-/usr/share/hadoop/etc/hadoop/mapred-env.cmd
 /usr/share/hadoop/etc/hadoop/mapred-env.sh
 /usr/share/hadoop/etc/hadoop/mapred-queues.xml.template
 /usr/share/hadoop/etc/hadoop/mapred-site.xml.template
 /usr/share/hadoop/etc/hadoop/slaves
 /usr/share/hadoop/etc/hadoop/ssl-client.xml.example
 /usr/share/hadoop/etc/hadoop/ssl-server.xml.example
-/usr/share/hadoop/etc/hadoop/yarn-env.cmd
 /usr/share/hadoop/etc/hadoop/yarn-env.sh
 /usr/share/hadoop/etc/hadoop/yarn-site.xml
 /usr/share/hadoop/hdfs/hadoop-hdfs-2.7.3-tests.jar
