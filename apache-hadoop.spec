@@ -4,7 +4,6 @@ Release  : 9
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-2.7.3/hadoop-2.7.3-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-2.7.3/hadoop-2.7.3-src.tar.gz
 Source1  : http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.44/bin/apache-tomcat-6.0.44.tar.gz
-Source2  : hadoop-layout.sh
 Source3  : https://repo.maven.apache.org/maven2/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final.jar
 Summary  : No detailed summary available
 Group    : Development/Tools
@@ -20,6 +19,7 @@ Patch0   : 0001-Change-protobuf-version.patch
 Patch1   : protobuf3.patch
 Patch2   : 0001-Java_home-on-CLR.patch
 Patch3   : HADOOP-11364.01.patch
+Patch4   : 0001-stateless.patch
 
 %description
 
@@ -30,6 +30,7 @@ Patch3   : HADOOP-11364.01.patch
 %patch2 -p1
 # https://issues.apache.org/jira/browse/YARN-4714
 %patch3 -p1
+%patch4 -p1
 
 %build
 mkdir -p %{buildroot}
@@ -48,16 +49,14 @@ mvn package -o -Pnative -Pdist -DskipTests -Dtar \
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr
+mkdir -p %{buildroot}/usr/share/defaults/hadoop
 tar -xf hadoop-dist/target/hadoop-2.7.3.tar.gz -C %{buildroot}/usr --strip-components=1
 mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
-mv %{buildroot}/usr/etc %{buildroot}/usr/share/hadoop/etc
+mv %{buildroot}/usr/etc/* %{buildroot}/usr/share/defaults
 
 # Remove *.cmd files 
 find %{buildroot}/usr -iname *.cmd -delete
-
-# Install hadoop-layout.sh
-cp %{SOURCE2} %{buildroot}/usr/libexec/hadoop-layout.sh
+find %{buildroot}/usr -iname *.orig -delete
 
 # Fix java.lang.NoClassDefFoundError: io/netty/channel/EventLoopGroup
 cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
@@ -85,7 +84,6 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/lib/native/libhdfs.so
 /usr/lib/native/libhdfs.so.0.0.0
 /usr/libexec/hadoop-config.sh
-/usr/libexec/hadoop-layout.sh
 /usr/libexec/hdfs-config.sh
 /usr/libexec/httpfs-config.sh
 /usr/libexec/kms-config.sh
@@ -112,6 +110,32 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/sbin/stop-yarn.sh
 /usr/sbin/yarn-daemon.sh
 /usr/sbin/yarn-daemons.sh
+/usr/share/defaults/hadoop/capacity-scheduler.xml
+/usr/share/defaults/hadoop/configuration.xsl
+/usr/share/defaults/hadoop/container-executor.cfg
+/usr/share/defaults/hadoop/core-site.xml
+/usr/share/defaults/hadoop/hadoop-env.sh
+/usr/share/defaults/hadoop/hadoop-metrics.properties
+/usr/share/defaults/hadoop/hadoop-metrics2.properties
+/usr/share/defaults/hadoop/hadoop-policy.xml
+/usr/share/defaults/hadoop/hdfs-site.xml
+/usr/share/defaults/hadoop/httpfs-env.sh
+/usr/share/defaults/hadoop/httpfs-log4j.properties
+/usr/share/defaults/hadoop/httpfs-signature.secret
+/usr/share/defaults/hadoop/httpfs-site.xml
+/usr/share/defaults/hadoop/kms-acls.xml
+/usr/share/defaults/hadoop/kms-env.sh
+/usr/share/defaults/hadoop/kms-log4j.properties
+/usr/share/defaults/hadoop/kms-site.xml
+/usr/share/defaults/hadoop/log4j.properties
+/usr/share/defaults/hadoop/mapred-env.sh
+/usr/share/defaults/hadoop/mapred-queues.xml.template
+/usr/share/defaults/hadoop/mapred-site.xml.template
+/usr/share/defaults/hadoop/slaves
+/usr/share/defaults/hadoop/ssl-client.xml.example
+/usr/share/defaults/hadoop/ssl-server.xml.example
+/usr/share/defaults/hadoop/yarn-env.sh
+/usr/share/defaults/hadoop/yarn-site.xml
 /usr/share/doc/hadoop/LICENSE.txt
 /usr/share/doc/hadoop/NOTICE.txt
 /usr/share/doc/hadoop/README.txt
@@ -204,32 +228,6 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/share/hadoop/common/sources/hadoop-common-2.7.3-sources.jar
 /usr/share/hadoop/common/sources/hadoop-common-2.7.3-test-sources.jar
 /usr/share/hadoop/common/templates/core-site.xml
-/usr/share/hadoop/etc/hadoop/capacity-scheduler.xml
-/usr/share/hadoop/etc/hadoop/configuration.xsl
-/usr/share/hadoop/etc/hadoop/container-executor.cfg
-/usr/share/hadoop/etc/hadoop/core-site.xml
-/usr/share/hadoop/etc/hadoop/hadoop-env.sh
-/usr/share/hadoop/etc/hadoop/hadoop-metrics.properties
-/usr/share/hadoop/etc/hadoop/hadoop-metrics2.properties
-/usr/share/hadoop/etc/hadoop/hadoop-policy.xml
-/usr/share/hadoop/etc/hadoop/hdfs-site.xml
-/usr/share/hadoop/etc/hadoop/httpfs-env.sh
-/usr/share/hadoop/etc/hadoop/httpfs-log4j.properties
-/usr/share/hadoop/etc/hadoop/httpfs-signature.secret
-/usr/share/hadoop/etc/hadoop/httpfs-site.xml
-/usr/share/hadoop/etc/hadoop/kms-acls.xml
-/usr/share/hadoop/etc/hadoop/kms-env.sh
-/usr/share/hadoop/etc/hadoop/kms-log4j.properties
-/usr/share/hadoop/etc/hadoop/kms-site.xml
-/usr/share/hadoop/etc/hadoop/log4j.properties
-/usr/share/hadoop/etc/hadoop/mapred-env.sh
-/usr/share/hadoop/etc/hadoop/mapred-queues.xml.template
-/usr/share/hadoop/etc/hadoop/mapred-site.xml.template
-/usr/share/hadoop/etc/hadoop/slaves
-/usr/share/hadoop/etc/hadoop/ssl-client.xml.example
-/usr/share/hadoop/etc/hadoop/ssl-server.xml.example
-/usr/share/hadoop/etc/hadoop/yarn-env.sh
-/usr/share/hadoop/etc/hadoop/yarn-site.xml
 /usr/share/hadoop/hdfs/hadoop-hdfs-2.7.3-tests.jar
 /usr/share/hadoop/hdfs/hadoop-hdfs-2.7.3.jar
 /usr/share/hadoop/hdfs/hadoop-hdfs-nfs-2.7.3.jar
@@ -713,7 +711,6 @@ cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/share/hadoop/tools/lib/api-util-1.0.0-M20.jar
 /usr/share/hadoop/tools/lib/asm-3.2.jar
 /usr/share/hadoop/tools/lib/avro-1.7.4.jar
-/usr/share/hadoop/tools/lib/aws-java-sdk-1.7.4.jar
 /usr/share/hadoop/tools/lib/aws-java-sdk-1.7.4.jar
 /usr/share/hadoop/tools/lib/azure-storage-2.0.0.jar
 /usr/share/hadoop/tools/lib/commons-beanutils-1.7.0.jar
