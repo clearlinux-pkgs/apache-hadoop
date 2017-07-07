@@ -1,6 +1,6 @@
 Name     : apache-hadoop
 Version  : 2.8.0
-Release  : 16
+Release  : 17
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-2.8.0/hadoop-2.8.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-2.8.0/hadoop-2.8.0-src.tar.gz
 Source1  : http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.48/bin/apache-tomcat-6.0.48.tar.gz
@@ -62,13 +62,15 @@ find %{buildroot}/usr -iname *.orig -delete
 # Fix java.lang.NoClassDefFoundError: io/netty/channel/EventLoopGroup
 cp %{SOURCE3} %{buildroot}/usr/share/hadoop/common/lib/
 
+mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
+
 %files
 %defattr(-,root,root,-)
 /usr/bin/container-executor
 /usr/bin/hadoop
 /usr/bin/hdfs
 /usr/bin/mapred
-/usr/bin/rcc
+/usr/bin/hadoop-rcc
 /usr/bin/test-container-executor
 /usr/bin/yarn
 /usr/include/Pipes.hh
