@@ -1,6 +1,6 @@
 Name     : apache-hadoop
 Version  : 2.8.0
-Release  : 18
+Release  : 19
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-2.8.0/hadoop-2.8.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-2.8.0/hadoop-2.8.0-src.tar.gz
 Source1  : http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.48/bin/apache-tomcat-6.0.48.tar.gz
@@ -223,7 +223,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/common/lib/netty-all-4.0.23.Final.jar
 /usr/share/hadoop/common/lib/nimbus-jose-jwt-3.9.jar
 /usr/share/hadoop/common/lib/paranamer-2.3.jar
-/usr/share/hadoop/common/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/common/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/common/lib/servlet-api-2.5.jar
 /usr/share/hadoop/common/lib/slf4j-api-1.7.10.jar
 /usr/share/hadoop/common/lib/slf4j-log4j12-1.7.10.jar
@@ -269,7 +269,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/hdfs/lib/netty-all-4.0.23.Final.jar
 /usr/share/hadoop/hdfs/lib/okhttp-2.4.0.jar
 /usr/share/hadoop/hdfs/lib/okio-1.4.0.jar
-/usr/share/hadoop/hdfs/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/hdfs/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/hdfs/lib/servlet-api-2.5.jar
 /usr/share/hadoop/hdfs/lib/xercesImpl-2.9.1.jar
 /usr/share/hadoop/hdfs/lib/xml-apis-1.3.04.jar
@@ -566,7 +566,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/okhttp-2.4.0.jar
 /usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/okio-1.4.0.jar
 /usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/paranamer-2.3.jar
-/usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/slf4j-api-1.7.10.jar
 /usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/slf4j-log4j12-1.7.10.jar
 /usr/share/hadoop/httpfs/tomcat/webapps/webhdfs/WEB-INF/lib/snappy-java-1.0.4.1.jar
@@ -685,7 +685,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/netty-3.6.2.Final.jar
 /usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/nimbus-jose-jwt-3.9.jar
 /usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/paranamer-2.3.jar
-/usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/slf4j-api-1.7.10.jar
 /usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/slf4j-log4j12-1.7.10.jar
 /usr/share/hadoop/kms/tomcat/webapps/kms/WEB-INF/lib/snappy-java-1.0.4.1.jar
@@ -730,7 +730,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/mapreduce/lib/log4j-1.2.17.jar
 /usr/share/hadoop/mapreduce/lib/netty-3.6.2.Final.jar
 /usr/share/hadoop/mapreduce/lib/paranamer-2.3.jar
-/usr/share/hadoop/mapreduce/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/mapreduce/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/mapreduce/lib/snappy-java-1.0.4.1.jar
 /usr/share/hadoop/mapreduce/lib/xz-1.0.jar
 /usr/share/hadoop/mapreduce/sources/hadoop-mapreduce-client-app-2.8.0-sources.jar
@@ -826,7 +826,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/tools/lib/netty-3.6.2.Final.jar
 /usr/share/hadoop/tools/lib/nimbus-jose-jwt-3.9.jar
 /usr/share/hadoop/tools/lib/paranamer-2.3.jar
-/usr/share/hadoop/tools/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/tools/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/tools/lib/servlet-api-2.5.jar
 /usr/share/hadoop/tools/lib/snappy-java-1.0.4.1.jar
 /usr/share/hadoop/tools/lib/stax-api-1.0-2.jar
@@ -921,7 +921,7 @@ mv %{buildroot}/usr/bin/rcc %{buildroot}/usr/bin/hadoop-rcc
 /usr/share/hadoop/yarn/lib/log4j-1.2.17.jar
 /usr/share/hadoop/yarn/lib/netty-3.6.2.Final.jar
 /usr/share/hadoop/yarn/lib/objenesis-2.1.jar
-/usr/share/hadoop/yarn/lib/protobuf-java-3.3.0.jar
+/usr/share/hadoop/yarn/lib/protobuf-java-3.4.0.jar
 /usr/share/hadoop/yarn/lib/servlet-api-2.5.jar
 /usr/share/hadoop/yarn/lib/stax-api-1.0-2.jar
 /usr/share/hadoop/yarn/lib/xz-1.0.jar
