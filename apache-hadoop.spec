@@ -19,7 +19,7 @@ Patch0   : 0001-Change-protobuf-version.patch
 Patch1   : protobuf3.patch
 Patch2   : 0001-Java_home-on-CLR.patch
 Patch3   : HADOOP-11364.01.patch
-Patch4   : 0001-stateless.patch
+Patch4   : 0001-Stateless-v2.patch
 
 %description
 
