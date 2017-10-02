@@ -1,6 +1,6 @@
 Name     : apache-hadoop
 Version  : 2.8.0
-Release  : 19
+Release  : 20
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-2.8.0/hadoop-2.8.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-2.8.0/hadoop-2.8.0-src.tar.gz
 Source1  : http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.48/bin/apache-tomcat-6.0.48.tar.gz
