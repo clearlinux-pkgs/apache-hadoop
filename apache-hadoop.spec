@@ -676,15 +676,6 @@ cp %{SOURCE2} %{buildroot}/usr/share/hadoop/common/lib/
 /usr/sbin/FederationStateStore/SQLServer/FederationStateStoreStoreProcs.sql
 /usr/sbin/stop-secure-dns.sh
 /usr/sbin/start-secure-dns.sh
-/usr/lib/debug/usr/lib/native/examples/wordcount-part.debug
-/usr/lib/debug/usr/lib/native/examples/wordcount-nopipe.debug
-/usr/lib/debug/usr/lib/native/examples/wordcount-simple.debug
-/usr/lib/debug/usr/lib/native/examples/pipes-sort.debug
-/usr/lib/debug/usr/lib/native/libhadoop.so.1.0.0.debug
-/usr/lib/debug/usr/lib/native/libnativetask.so.1.0.0.debug
-/usr/lib/debug/usr/bin/container-executor.debug
-/usr/lib/debug/usr/bin/oom-listener.debug
-/usr/lib/debug/usr/bin/test-container-executor.debug
 /usr/lib/native/examples/wordcount-nopipe
 /usr/lib/native/examples/wordcount-part
 /usr/lib/native/examples/wordcount-simple
