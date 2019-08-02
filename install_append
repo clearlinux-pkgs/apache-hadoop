@@ -1,0 +1,10 @@
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/defaults/hadoop
+mkdir -p %{buildroot}/usr/share/doc/hadoop
+tar -xf hadoop-dist/target/hadoop-*.tar.gz -C %{buildroot}/usr --strip-components=1
+mv %{buildroot}/usr/*.txt %{buildroot}/usr/share/doc/hadoop
+mv %{buildroot}/usr/etc/* %{buildroot}/usr/share/defaults
+
+# Remove *.cmd files 
+find %{buildroot}/usr -iname *.cmd -delete
+find %{buildroot}/usr -iname *.orig -delete

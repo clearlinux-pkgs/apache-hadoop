@@ -1,0 +1,8 @@
+0001-Integrate-JDK11.patch
+0001-Java_home-on-CLR.patch
+HADOOP-11364.01.patch
+0001-Stateless-v2.patch
+0001-Change-protobuf-version.patch
+protobuf3.patch
+protobuf-3.6.1-hadoop-3.2.0-On-CLR.patch
+0001-YARN-8498.-Yarn-NodeManager-OOM-Listener-Fails-Compi.patch
