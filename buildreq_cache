@@ -139,7 +139,7 @@ mvn-maven-resources-plugin
 mvn-maven-settings
 mvn-maven-settings-builder
 mvn-maven-shade-plugin
-mvn-maven-shared-io
+mvn-maven-shared
 mvn-maven-shared-utils
 mvn-maven-site-plugin
 mvn-maven-source-plugin
@@ -159,8 +159,6 @@ mvn-ojalgo
 mvn-okio
 mvn-openhtmltopdf-parent
 mvn-oro
-mvn-osgi-compendium
-mvn-osgi-core
 mvn-oss-parents
 mvn-ow2
 mvn-paranamer

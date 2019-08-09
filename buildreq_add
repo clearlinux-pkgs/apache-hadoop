@@ -51,6 +51,9 @@ mvn-mina-sshd
 mvn-mvnplugins
 mvn-nuiton
 mvn-okhttp
+mvn-org.apache.felix.bundlerepository
+mvn-org.osgi.compendium
+mvn-org.osgi.core
 mvn-oss-parents
 mvn-servicemix-bundles
 mvn-servicemix-pom

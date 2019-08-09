@@ -4,7 +4,7 @@
 #
 Name     : apache-hadoop
 Version  : 3.2.0
-Release  : 30
+Release  : 31
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Summary  : No detailed summary available
@@ -206,7 +206,6 @@ BuildRequires : mvn-maven-settings
 BuildRequires : mvn-maven-settings-builder
 BuildRequires : mvn-maven-shade-plugin
 BuildRequires : mvn-maven-shared
-BuildRequires : mvn-maven-shared-io
 BuildRequires : mvn-maven-shared-utils
 BuildRequires : mvn-maven-site-plugin
 BuildRequires : mvn-maven-source-plugin
@@ -230,9 +229,10 @@ BuildRequires : mvn-ojalgo
 BuildRequires : mvn-okhttp
 BuildRequires : mvn-okio
 BuildRequires : mvn-openhtmltopdf-parent
+BuildRequires : mvn-org.apache.felix.bundlerepository
+BuildRequires : mvn-org.osgi.compendium
+BuildRequires : mvn-org.osgi.core
 BuildRequires : mvn-oro
-BuildRequires : mvn-osgi-compendium
-BuildRequires : mvn-osgi-core
 BuildRequires : mvn-oss-parents
 BuildRequires : mvn-ow2
 BuildRequires : mvn-paranamer
