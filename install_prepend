@@ -1,0 +1,5 @@
+# Remove double target dir, this causes errors during installation 
+rm -rf ./hadoop-hdfs-project/hadoop-hdfs-native-client/target/target
+rm -r ./hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-nodemanager/target/native/target
+rm -rf ./hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-nativetask/target/native/target
+rm -rf ./hadoop-common-project/hadoop-common/target/native/target

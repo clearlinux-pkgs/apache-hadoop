@@ -1,203 +1,293 @@
 3.2.0
-doxygen
-mvn-HikariCP-java7
-mvn-accessors-smart
-mvn-ant
-mvn-ant-launcher
-mvn-antlr
-mvn-asm
-mvn-assertj-core
-mvn-autolink
-mvn-avalon-framework
-mvn-azure-data-lake-store-java
-mvn-backport-util-concurrent
-mvn-beanshell
-mvn-bndlib
-mvn-cglib
-mvn-classworlds
-mvn-codehaus-jackson
-mvn-commons-beanutils
-mvn-commons-chain
-mvn-commons-collections
-mvn-commons-compress
-mvn-commons-configuration
-mvn-commons-configuration2
-mvn-commons-csv
-mvn-commons-digester
-mvn-commons-el
-mvn-commons-exec
-mvn-commons-httpclient
-mvn-commons-math
-mvn-commons-math3
-mvn-commons-net
-mvn-commons-parent
-mvn-commons-pool
-mvn-commons-text
-mvn-commons-validator
-mvn-curator
-mvn-disruptor
-mvn-dnsjava
-mvn-dom4j
-mvn-doxia
-mvn-doxia-sitetools
-mvn-easymock
-mvn-ehcache
-mvn-enforcer
-mvn-exec-maven-plugin
-mvn-extra-enforcer-rules
-mvn-file-management
-mvn-findbugs-annotations
-mvn-flexmark-java
-mvn-freemarker
-mvn-fst
-mvn-genesis
-mvn-geronimo-jcache_1.0_spec
-mvn-google
-mvn-google-collections
-mvn-gson
-mvn-guice-servlet
-mvn-hamcrest
-mvn-hsqldb
-mvn-icu4j
-mvn-jackson-annotations
-mvn-jackson-core
-mvn-jackson-databind
-mvn-jackson-module-jaxb-annotations
-mvn-jamon-runtime
-mvn-java-util
-mvn-java-xmlbuilder
-mvn-javassist
-mvn-javax.inject
-mvn-javax.servlet-api
-mvn-jaxb-api
-mvn-jcip-annotations
-mvn-jcodings
-mvn-jdependency
-mvn-jdiff
-mvn-jdom
-mvn-jdom2
-mvn-jersey
-mvn-jersey-json
-mvn-jets3t
-mvn-jetty
-mvn-jetty-parent
-mvn-joni
-mvn-jsch
-mvn-json
-mvn-json-io
-mvn-json-simple
-mvn-json-smart
-mvn-jsonassert
-mvn-jsp-api
-mvn-jtidy
-mvn-junit
-mvn-kafka-clients
-mvn-ldapsdk
-mvn-leveldbjni
-mvn-license-maven-plugin
-mvn-log4j
-mvn-logback-classic
-mvn-logback-core
-mvn-logkit
-mvn-lz4-java
-mvn-maven
-mvn-maven-aether-provider
-mvn-maven-antrun-plugin
-mvn-maven-archiver
-mvn-maven-artifact
-mvn-maven-artifact-manager
-mvn-maven-artifact-transfer
-mvn-maven-bundle-plugin
-mvn-maven-common-artifact-filters
-mvn-maven-compat
-mvn-maven-compiler-plugin
-mvn-maven-core
-mvn-maven-error-diagnostics
-mvn-maven-filtering
-mvn-maven-invoker
-mvn-maven-jar-plugin
-mvn-maven-javadoc-plugin
-mvn-maven-mapping
-mvn-maven-model
-mvn-maven-model-builder
-mvn-maven-monitor
-mvn-maven-parent
-mvn-maven-plugin-api
-mvn-maven-plugin-descriptor
-mvn-maven-plugin-parameter-documenter
-mvn-maven-plugin-registry
-mvn-maven-plugin-tools
-mvn-maven-plugins
-mvn-maven-profile
-mvn-maven-project
-mvn-maven-reporting-api
-mvn-maven-reporting-exec
-mvn-maven-reporting-impl
-mvn-maven-repository-builder
-mvn-maven-repository-metadata
-mvn-maven-resources-plugin
-mvn-maven-settings
-mvn-maven-settings-builder
-mvn-maven-shade-plugin
-mvn-maven-shared
-mvn-maven-shared-utils
-mvn-maven-site-plugin
-mvn-maven-source-plugin
-mvn-maven-surefire
-mvn-maven-toolchain
-mvn-maven-war-plugin
-mvn-metrics
-mvn-minimal-json
-mvn-mockito
-mvn-mockserver
-mvn-mojo-parent
-mvn-mssql-jdbc
-mvn-netty
-mvn-nimbus-jose-jwt
-mvn-objenesis
-mvn-ojalgo
-mvn-okio
-mvn-openhtmltopdf-parent
-mvn-oro
-mvn-oss-parents
-mvn-ow2
-mvn-paranamer
-mvn-pdfbox
-mvn-plexus
-mvn-plexus-archiver
-mvn-plexus-build-api
-mvn-plexus-compiler
-mvn-plexus-i18n
-mvn-plexus-interactivity
-mvn-plexus-io
-mvn-plexus-languages
-mvn-plexus-resources
-mvn-plexus-velocity
-mvn-protobuf-java
-mvn-qdox
-mvn-re2j
-mvn-servlet-api
-mvn-sisu-guice
-mvn-snakeyaml
-mvn-snappy
-mvn-snappy-java
-mvn-sslext
-mvn-stax2-api
-mvn-struts
-mvn-velocity
-mvn-velocity-tools
-mvn-wagon-ssh
-mvn-wildfly-openssl
-mvn-woodstox-core
-mvn-xbean
-mvn-xercesImpl
-mvn-xml-apis
-mvn-xmlenc
-mvn-xmlpull
-mvn-xmlunit
-mvn-xpp3_min
-mvn-xstream
-mvn-xz
-mvn-zookeeper
+mvn(antlr:antlr:jar) = 2.7.2
+mvn(avalon-framework:avalon-framework:jar) = 4.1.3
+mvn(backport-util-concurrent:backport-util-concurrent:jar) = 3.1
+mvn(biz.aQute.bnd:bndlib:jar) = 2.3.0
+mvn(cglib:cglib:jar) = 3.2.0
+mvn(ch.qos.logback:logback-classic:jar) = 1.1.2
+mvn(ch.qos.logback:logback-parent:pom) = 1.1.2
+mvn(classworlds:classworlds:jar) = 1.1
+mvn(classworlds:classworlds:jar) = 1.1.alpha.2
+mvn(com.aliyun.oss:aliyun-sdk-oss:jar) = 2.8.3
+mvn(com.amazonaws:aws-java-sdk-bundle:jar) = 1.11.375
+mvn(com.cedarsoftware:java-util:jar) = 1.9.0
+mvn(com.cedarsoftware:json-io:jar) = 2.5.1
+mvn(com.eclipsesource.minimal-json:minimal-json:jar) = 0.9.1
+mvn(com.fasterxml.jackson.core:jackson-annotations:jar) = 2.9.5
+mvn(com.fasterxml.jackson.core:jackson-core:jar) = 2.9.5
+mvn(com.fasterxml.jackson.core:jackson-databind:jar) = 2.9.5
+mvn(com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar) = 2.9.5
+mvn(com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar) = 2.9.5
+mvn(com.fasterxml.jackson.module:jackson-modules-base:pom) = 2.9.5
+mvn(com.fasterxml.jackson:jackson-base:pom) = 2.9.5
+mvn(com.fasterxml.jackson:jackson-parent:pom) = 2.9.1
+mvn(com.fasterxml.woodstox:woodstox-core:jar) = 5.0.3
+mvn(com.github.stephenc.findbugs:findbugs-annotations:jar) = 1.3.9.1
+mvn(com.github.stephenc.jcip:jcip-annotations:jar) = 1.0.1
+mvn(com.google.code.gson:gson:jar) = 2.2.4
+mvn(com.google.collections:google-collections:jar) = 1.0
+mvn(com.google.inject.extensions:guice-servlet:jar) = 4.0
+mvn(com.google.protobuf:protobuf-java:jar) = 3.6.1
+mvn(com.google.re2j:re2j:jar) = 1.1
+mvn(com.google:google:pom) = 1
+mvn(com.googlecode.json-simple:json-simple:jar) = 1.1.1
+mvn(com.ibm.icu:icu4j:jar) = 58.1
+mvn(com.jamesmurty.utils:java-xmlbuilder:jar) = 0.4
+mvn(com.jcraft:jsch:jar) = 0.1.44.1
+mvn(com.lmax:disruptor:jar) = 3.3.0
+mvn(com.microsoft.azure:azure-data-lake-store-sdk:jar) = 2.2.9
+mvn(com.microsoft.azure:azure-keyvault-core:jar) = 1.0.0
+mvn(com.microsoft.azure:azure-storage:jar) = 7.0.0
+mvn(com.microsoft.sqlserver:mssql-jdbc:jar) = 6.2.1.jre7
+mvn(com.nimbusds:nimbus-jose-jwt:jar) = 4.41.1
+mvn(com.openhtmltopdf:openhtmltopdf-core:jar) = 0.0.1.RC9
+mvn(com.openhtmltopdf:openhtmltopdf-jsoup-dom-converter:jar) = 0.0.1.RC9
+mvn(com.openhtmltopdf:openhtmltopdf-pdfbox:jar) = 0.0.1.RC9
+mvn(com.openhtmltopdf:openhtmltopdf-rtl-support:jar) = 0.0.1.RC9
+mvn(com.squareup.okhttp3:mockwebserver:jar) = 3.7.0
+mvn(com.squareup.okio:okio:jar) = 1.12.0
+mvn(com.sun.jersey:jersey-core:jar) = 1.19
+mvn(com.sun.jersey:jersey-json:jar) = 1.19
+mvn(com.sun.jersey:jersey-server:jar) = 1.19
+mvn(com.sun.jersey:jersey-servlet:jar) = 1.19
+mvn(com.sun.xml.bind:jaxb-impl:jar) = 2.2.3.1
+mvn(com.thoughtworks.paranamer:paranamer:jar) = 2.3
+mvn(com.thoughtworks.qdox:qdox:jar) = 2.0.M7
+mvn(com.thoughtworks.xstream:xstream:jar) = 1.4.9
+mvn(com.vladsch.flexmark:flexmark-all:jar) = 0.18.4
+mvn(com.zaxxer:HikariCP-java7:jar) = 2.4.12
+mvn(commons-beanutils:commons-beanutils:jar) = 1.7.0
+mvn(commons-chain:commons-chain:jar) = 1.1
+mvn(commons-collections:commons-collections:jar) = 3.2
+mvn(commons-configuration:commons-configuration:jar) = 1.6
+mvn(commons-daemon:commons-daemon:jar) = 1.0.13
+mvn(commons-digester:commons-digester:jar) = 1.8
+mvn(commons-el:commons-el:jar) = 1.0
+mvn(commons-httpclient:commons-httpclient:jar) = 3.1
+mvn(commons-net:commons-net:jar) = 3.6
+mvn(commons-pool:commons-pool:jar) = 1.6
+mvn(commons-validator:commons-validator:jar) = 1.3.1
+mvn(de.ruedigermoeller:fst:jar) = 2.50
+mvn(dnsjava:dnsjava:jar) = 2.1.7
+mvn(dom4j:dom4j:jar) = 1.1
+mvn(io.dropwizard.metrics:metrics-core:jar) = 3.2.4
+mvn(io.netty:netty:jar) = 3.10.5.Final
+mvn(io.swagger:swagger-annotations:jar) = 1.5.4
+mvn(javax.activation:javax.activation-api:jar) = 1.2.0
+mvn(javax.servlet.jsp:jsp-api:jar) = 2.1
+mvn(javax.servlet:javax.servlet-api:jar) = 3.1.0
+mvn(javax.servlet:servlet-api:jar) = 2.5
+mvn(javax.ws.rs:jsr311-api:jar) = 1.1.1
+mvn(javax.xml.bind:jaxb-api:jar) = 2.2.11
+mvn(jdiff:jdiff:jar) = 1.0.9
+mvn(junit:junit:jar) = 3.8.1
+mvn(ldapsdk:ldapsdk:jar) = 4.1
+mvn(log4j:log4j:jar) = 1.2.12
+mvn(logkit:logkit:jar) = 1.0.1
+mvn(net.java.dev.jets3t:jets3t:jar) = 0.9.0
+mvn(net.jpountz.lz4:lz4:jar) = 1.2.0
+mvn(net.minidev:accessors-smart:jar) = 1.2
+mvn(net.minidev:json-smart:jar) = 2.3
+mvn(net.sf.ehcache:ehcache:jar) = 2.8.5
+mvn(net.sf.jtidy:jtidy:jar) = r938
+mvn(net.sf.kosmosfs:kfs:jar) = 0.3
+mvn(org.apache.ant:ant-launcher:jar) = 1.8.2
+mvn(org.apache.ant:ant:jar) = 1.8.2
+mvn(org.apache.avro:avro-maven-plugin:jar) = 1.7.7
+mvn(org.apache.commons:commons-compress:jar) = 1.11
+mvn(org.apache.commons:commons-configuration2:jar) = 2.1.1
+mvn(org.apache.commons:commons-csv:jar) = 1.0
+mvn(org.apache.commons:commons-exec:jar) = 1.2
+mvn(org.apache.commons:commons-math3:jar) = 3.1.1
+mvn(org.apache.commons:commons-math:jar) = 2.2
+mvn(org.apache.commons:commons-parent:pom) = 41
+mvn(org.apache.commons:commons-text:jar) = 1.4
+mvn(org.apache.curator:curator-framework:jar) = 2.12.0
+mvn(org.apache.curator:curator-test:jar) = 2.12.0
+mvn(org.apache.directory.api:api-ldap-codec-core:jar) = 1.0.0.M33
+mvn(org.apache.directory.api:api-ldap-model:jar) = 1.0.0.M33
+mvn(org.apache.directory.jdbm:apacheds-jdbm1:jar) = 2.0.0.M3
+mvn(org.apache.directory.mavibot:mavibot:jar) = 1.0.0.M8
+mvn(org.apache.directory.project:project:pom) = 35
+mvn(org.apache.directory.server:apacheds-core-integ:jar) = 2.0.0.M21
+mvn(org.apache.directory.server:apacheds-core:jar) = 2.0.0.M21
+mvn(org.apache.directory.server:apacheds-ldif-partition:jar) = 2.0.0.M21
+mvn(org.apache.directory.server:apacheds-protocol-ldap:jar) = 2.0.0.M21
+mvn(org.apache.directory.server:apacheds-server-integ:jar) = 2.0.0.M21
+mvn(org.apache.felix:felix-parent:pom) = 2.1
+mvn(org.apache.felix:maven-bundle-plugin:jar) = 2.5.0
+mvn(org.apache.felix:org.apache.felix.bundlerepository:jar) = 1.6.6
+mvn(org.apache.geronimo.genesis:genesis-java5-flava:pom) = 2.0
+mvn(org.apache.geronimo.specs:geronimo-jcache_1.0_spec:jar) = 1.0.alpha.1
+mvn(org.apache.hadoop:hadoop-auth:jar) = 2.5.1
+mvn(org.apache.hadoop:hadoop-common:jar) = 2.5.1
+mvn(org.apache.hadoop:hadoop-common:jar:tests) = 2.5.1
+mvn(org.apache.hadoop:hadoop-hdfs:jar) = 2.5.1
+mvn(org.apache.hadoop:hadoop-hdfs:jar:tests) = 2.5.1
+mvn(org.apache.hbase:hbase-common:jar) = 1.2.6
+mvn(org.apache.htrace:htrace-core4:jar) = 4.1.0.incubating
+mvn(org.apache.kafka:kafka-clients:jar) = 0.8.2.1
+mvn(org.apache.kerby:kerb-simplekdc:jar) = 1.0.1
+mvn(org.apache.maven.doxia:doxia-sink-api:jar) = 1.0
+mvn(org.apache.maven.doxia:doxia-site-renderer:jar) = 1.0
+mvn(org.apache.maven.plugins:maven-antrun-plugin:jar) = 1.7
+mvn(org.apache.maven.plugins:maven-assembly-plugin:jar) = 2.4
+mvn(org.apache.maven.plugins:maven-compiler-plugin:jar) = 3.1
+mvn(org.apache.maven.plugins:maven-enforcer-plugin:jar) = 3.0.0.M1
+mvn(org.apache.maven.plugins:maven-jar-plugin:jar) = 2.4
+mvn(org.apache.maven.plugins:maven-javadoc-plugin:jar) = 3.0.1
+mvn(org.apache.maven.plugins:maven-plugins:pom) = 30
+mvn(org.apache.maven.plugins:maven-remote-resources-plugin:jar) = 1.5
+mvn(org.apache.maven.plugins:maven-resources-plugin:jar) = 3.0.1
+mvn(org.apache.maven.plugins:maven-shade-plugin:jar) = 3.2.1
+mvn(org.apache.maven.plugins:maven-site-plugin:jar) = 3.6
+mvn(org.apache.maven.plugins:maven-source-plugin:jar) = 2.3
+mvn(org.apache.maven.plugins:maven-surefire-plugin:jar) = 2.12.4
+mvn(org.apache.maven.plugins:maven-war-plugin:jar) = 3.1.0
+mvn(org.apache.maven.reporting:maven-reporting-api:jar) = 2.0.6
+mvn(org.apache.maven.reporting:maven-reporting-api:jar) = 2.0.7
+mvn(org.apache.maven.reporting:maven-reporting-exec:jar) = 1.3
+mvn(org.apache.maven.reporting:maven-reporting-impl:jar) = 2.1
+mvn(org.apache.maven.reporting:maven-reporting-impl:jar) = 2.3
+mvn(org.apache.maven.shared:file-management:jar) = 1.1
+mvn(org.apache.maven.shared:maven-artifact-transfer:jar) = 0.9.1
+mvn(org.apache.maven.shared:maven-common-artifact-filters:jar) = 3.0.1
+mvn(org.apache.maven.shared:maven-dependency-tree:jar) = 2.1
+mvn(org.apache.maven.shared:maven-filtering:jar) = 3.1.1
+mvn(org.apache.maven.shared:maven-invoker:jar) = 3.0.0
+mvn(org.apache.maven.shared:maven-mapping:jar) = 3.0.0
+mvn(org.apache.maven.shared:maven-repository-builder:jar) = 1.0.alpha.2
+mvn(org.apache.maven:maven-aether-provider:jar) = 3.0
+mvn(org.apache.maven:maven-archiver:jar) = 2.5
+mvn(org.apache.maven:maven-artifact-manager:jar) = 2.0.6
+mvn(org.apache.maven:maven-artifact-manager:jar) = 2.0.7
+mvn(org.apache.maven:maven-artifact:jar) = 2.0.6
+mvn(org.apache.maven:maven-artifact:jar) = 2.0.7
+mvn(org.apache.maven:maven-compat:jar) = 3.0
+mvn(org.apache.maven:maven-core:jar) = 2.0.7
+mvn(org.apache.maven:maven-error-diagnostics:jar) = 2.0.6
+mvn(org.apache.maven:maven-error-diagnostics:jar) = 2.0.7
+mvn(org.apache.maven:maven-model-builder:jar) = 3.0
+mvn(org.apache.maven:maven-model:jar) = 2.0.6
+mvn(org.apache.maven:maven-model:jar) = 2.0.7
+mvn(org.apache.maven:maven-monitor:jar) = 2.0.6
+mvn(org.apache.maven:maven-monitor:jar) = 2.0.7
+mvn(org.apache.maven:maven-parent:pom) = 5
+mvn(org.apache.maven:maven-plugin-api:jar) = 2.0.6
+mvn(org.apache.maven:maven-plugin-api:jar) = 2.0.7
+mvn(org.apache.maven:maven-plugin-descriptor:jar) = 2.0.6
+mvn(org.apache.maven:maven-plugin-descriptor:jar) = 2.0.7
+mvn(org.apache.maven:maven-plugin-parameter-documenter:jar) = 2.0.6
+mvn(org.apache.maven:maven-plugin-parameter-documenter:jar) = 2.0.7
+mvn(org.apache.maven:maven-plugin-registry:jar) = 2.0.6
+mvn(org.apache.maven:maven-plugin-registry:jar) = 2.0.7
+mvn(org.apache.maven:maven-plugin-registry:jar) = 2.2.0
+mvn(org.apache.maven:maven-profile:jar) = 2.0.6
+mvn(org.apache.maven:maven-profile:jar) = 2.0.7
+mvn(org.apache.maven:maven-project:jar) = 2.0.6
+mvn(org.apache.maven:maven-project:jar) = 2.0.7
+mvn(org.apache.maven:maven-project:jar) = 2.2.0
+mvn(org.apache.maven:maven-repository-metadata:jar) = 2.0.6
+mvn(org.apache.maven:maven-repository-metadata:jar) = 2.0.7
+mvn(org.apache.maven:maven-settings-builder:jar) = 3.0
+mvn(org.apache.maven:maven-settings:jar) = 2.0.6
+mvn(org.apache.maven:maven-settings:jar) = 2.0.7
+mvn(org.apache.maven:maven-toolchain:jar) = 1.0
+mvn(org.apache.maven:maven:pom) = 2.0.7
+mvn(org.apache.mina:mina-core:jar) = 2.0.16
+mvn(org.apache.pdfbox:pdfbox:jar) = 2.0.4
+mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.antlr:jar) = 2.7.7_5
+mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.dom4j:jar) = 1.6.1_5
+mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.xpp3:jar) = 1.1.4c_6
+mvn(org.apache.servicemix:servicemix-pom:pom) = 5
+mvn(org.apache.sshd:sshd-core:jar) = 1.6.0
+mvn(org.apache.struts:struts-core:jar) = 1.3.8
+mvn(org.apache.struts:struts-taglib:jar) = 1.3.8
+mvn(org.apache.struts:struts-tiles:jar) = 1.3.8
+mvn(org.apache.velocity:velocity-tools:jar) = 2.0
+mvn(org.apache.velocity:velocity:jar) = 1.5
+mvn(org.apache.xbean:xbean-reflect:jar) = 3.7
+mvn(org.apache.yetus:audience-annotations:jar) = 0.5.0
+mvn(org.apache.zookeeper:zookeeper:jar) = 3.4.13
+mvn(org.apache:apache:pom) = 9
+mvn(org.assertj:assertj-core:jar) = 3.8.0
+mvn(org.assertj:assertj-parent-pom:pom) = 2.1.6
+mvn(org.beanshell:bsh:jar) = 2.0b4
+mvn(org.bouncycastle:bcprov-jdk15on:jar) = 1.52
+mvn(org.codehaus.jackson:jackson-core-asl:jar) = 1.9.13
+mvn(org.codehaus.jackson:jackson-mapper-asl:jar) = 1.9.13
+mvn(org.codehaus.jettison:jettison:jar) = 1.1
+mvn(org.codehaus.mojo:exec-maven-plugin:jar) = 1.3.1
+mvn(org.codehaus.mojo:extra-enforcer-rules:jar) = 1.0.beta.3
+mvn(org.codehaus.mojo:license-maven-plugin:jar) = 1.10
+mvn(org.codehaus.mojo:mojo-parent:pom) = 33
+mvn(org.codehaus.plexus:plexus-archiver:jar) = 2.1
+mvn(org.codehaus.plexus:plexus-compiler-api:jar) = 2.2
+mvn(org.codehaus.plexus:plexus-compiler-javac:jar) = 2.2
+mvn(org.codehaus.plexus:plexus-compiler-manager:jar) = 2.2
+mvn(org.codehaus.plexus:plexus-i18n:jar) = 1.0.beta.7
+mvn(org.codehaus.plexus:plexus-interactivity-api:jar) = 1.0.alpha.4
+mvn(org.codehaus.plexus:plexus-io:jar) = 2.0.2
+mvn(org.codehaus.plexus:plexus-java:jar) = 0.9.8
+mvn(org.codehaus.plexus:plexus-resources:jar) = 1.0.alpha.7
+mvn(org.codehaus.plexus:plexus-velocity:jar) = 1.1.7
+mvn(org.codehaus.plexus:plexus:pom) = 3.3
+mvn(org.codehaus.woodstox:stax2-api:jar) = 3.1.4
+mvn(org.easymock:easymock:jar) = 2.4
+mvn(org.freemarker:freemarker:jar) = 2.3.20
+mvn(org.fusesource.leveldbjni:leveldbjni-all:jar) = 1.8
+mvn(org.fusesource:fusesource-pom:pom) = 1.9
+mvn(org.glassfish.grizzly:grizzly-http-server:jar) = 2.2.21
+mvn(org.glassfish.grizzly:grizzly-http-servlet:jar) = 2.2.21
+mvn(org.glassfish.grizzly:grizzly-http:jar) = 2.2.21
+mvn(org.hamcrest:hamcrest-core:jar) = 1.3
+mvn(org.hsqldb:hsqldb:jar) = 2.3.4
+mvn(org.iq80.snappy:snappy:jar) = 0.4
+mvn(org.jamon:jamon-java-parent:pom) = 2.4.1
+mvn(org.jamon:jamon-parent:pom) = 2.4.1
+mvn(org.jamon:jamon-runtime:jar) = 2.4.1
+mvn(org.javassist:javassist:jar) = 3.18.1.GA
+mvn(org.jboss:jboss-parent:pom) = 21
+mvn(org.jdom:jdom2:jar) = 2.0.6
+mvn(org.jdom:jdom:jar) = 1.1
+mvn(org.jruby.jcodings:jcodings:jar) = 1.0.13
+mvn(org.jruby.joni:joni:jar) = 2.1.2
+mvn(org.json:json:jar) = 20090211
+mvn(org.mock-server:mockserver-netty:jar) = 3.9.2
+mvn(org.mockito:mockito-all:jar) = 1.8.5
+mvn(org.mortbay.jetty:jetty-parent:pom) = 10
+mvn(org.mortbay.jetty:jetty-util:jar) = 6.1.25
+mvn(org.mortbay.jetty:jetty:jar) = 6.1.25
+mvn(org.mortbay.jetty:servlet-api:jar) = 2.5.20081211
+mvn(org.nibor.autolink:autolink:jar) = 0.6.0
+mvn(org.nuiton.processor:nuiton-processor:jar) = 1.3
+mvn(org.objenesis:objenesis:jar) = 2.6
+mvn(org.ojalgo:ojalgo:jar) = 43.0
+mvn(org.osgi:org.osgi.compendium:jar) = 4.2.0
+mvn(org.osgi:org.osgi.core:jar) = 4.1.0
+mvn(org.ow2.asm:asm:jar) = 6.1.1
+mvn(org.ow2:ow2:pom) = 1.5
+mvn(org.skyscreamer:jsonassert:jar) = 1.3.0
+mvn(org.sonatype.aether:aether-api:jar) = 1.7
+mvn(org.sonatype.aether:aether-impl:jar) = 1.7
+mvn(org.sonatype.aether:aether-util:jar) = 1.7
+mvn(org.sonatype.plexus:plexus-build-api:jar) = 0.0.7
+mvn(org.sonatype.sisu:sisu-guice:jar:noaop) = 2.1.7
+mvn(org.sonatype.spice:spice-parent:pom) = 16
+mvn(org.tukaani:xz:jar) = 1.5
+mvn(org.vafer:jdependency:jar) = 2.1.1
+mvn(org.wildfly.openssl:wildfly-openssl:jar) = 1.0.4.Final
+mvn(org.xerial.snappy:snappy-java:jar) = 1.0.5
+mvn(org.yaml:snakeyaml:jar) = 1.16
+mvn(oro:oro:jar) = 2.0.8
+mvn(sslext:sslext:jar) = 1.2.0
+mvn(tomcat:jasper-compiler:jar) = 5.5.23
+mvn(tomcat:jasper-runtime:jar) = 5.5.23
+mvn(xerces:xercesImpl:jar) = 2.9.1
+mvn(xml-apis:xml-apis:jar) = 1.0.b2
+mvn(xmlenc:xmlenc:jar) = 0.52
+mvn(xmlpull:xmlpull:jar) = 1.1.3.1
+mvn(xmlunit:xmlunit:jar) = 1.5
+mvn(xpp3:xpp3_min:jar) = 1.1.4c
 openssl-dev
 zlib-dev

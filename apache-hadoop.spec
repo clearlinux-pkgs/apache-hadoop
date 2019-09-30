@@ -4,7 +4,7 @@
 #
 Name     : apache-hadoop
 Version  : 3.2.0
-Release  : 31
+Release  : 32
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Summary  : No detailed summary available
@@ -16,277 +16,323 @@ Requires: apache-hadoop-lib = %{version}-%{release}
 Requires: apache-hadoop-libexec = %{version}-%{release}
 BuildRequires : apache-maven
 BuildRequires : buildreq-cmake
+BuildRequires : buildreq-mvn
 BuildRequires : cyrus-sasl
 BuildRequires : cyrus-sasl-dev
-BuildRequires : doxygen
-BuildRequires : mvn-HikariCP-java7
-BuildRequires : mvn-accessors-smart
-BuildRequires : mvn-activation
+BuildRequires : mvn(antlr:antlr:jar) = 2.7.2
+BuildRequires : mvn(avalon-framework:avalon-framework:jar) = 4.1.3
+BuildRequires : mvn(backport-util-concurrent:backport-util-concurrent:jar) = 3.1
+BuildRequires : mvn(biz.aQute.bnd:bndlib:jar) = 2.3.0
+BuildRequires : mvn(cglib:cglib:jar) = 3.2.0
+BuildRequires : mvn(ch.qos.logback:logback-classic:jar) = 1.1.2
+BuildRequires : mvn(ch.qos.logback:logback-parent:pom) = 1.1.2
+BuildRequires : mvn(classworlds:classworlds:jar) = 1.1
+BuildRequires : mvn(classworlds:classworlds:jar) = 1.1.alpha.2
+BuildRequires : mvn(com.aliyun.oss:aliyun-sdk-oss:jar) = 2.8.3
+BuildRequires : mvn(com.amazonaws:aws-java-sdk-bundle:jar) = 1.11.375
+BuildRequires : mvn(com.cedarsoftware:java-util:jar) = 1.9.0
+BuildRequires : mvn(com.cedarsoftware:json-io:jar) = 2.5.1
+BuildRequires : mvn(com.eclipsesource.minimal-json:minimal-json:jar) = 0.9.1
+BuildRequires : mvn(com.fasterxml.jackson.core:jackson-annotations:jar) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson.core:jackson-core:jar) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson.core:jackson-databind:jar) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson.module:jackson-modules-base:pom) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson:jackson-base:pom) = 2.9.5
+BuildRequires : mvn(com.fasterxml.jackson:jackson-parent:pom) = 2.9.1
+BuildRequires : mvn(com.fasterxml.woodstox:woodstox-core:jar) = 5.0.3
+BuildRequires : mvn(com.github.stephenc.findbugs:findbugs-annotations:jar) = 1.3.9.1
+BuildRequires : mvn(com.github.stephenc.jcip:jcip-annotations:jar) = 1.0.1
+BuildRequires : mvn(com.google.code.gson:gson:jar) = 2.2.4
+BuildRequires : mvn(com.google.collections:google-collections:jar) = 1.0
+BuildRequires : mvn(com.google.inject.extensions:guice-servlet:jar) = 4.0
+BuildRequires : mvn(com.google.protobuf:protobuf-java:jar) = 3.6.1
+BuildRequires : mvn(com.google.re2j:re2j:jar) = 1.1
+BuildRequires : mvn(com.google:google:pom) = 1
+BuildRequires : mvn(com.googlecode.json-simple:json-simple:jar) = 1.1.1
+BuildRequires : mvn(com.ibm.icu:icu4j:jar) = 58.1
+BuildRequires : mvn(com.jamesmurty.utils:java-xmlbuilder:jar) = 0.4
+BuildRequires : mvn(com.jcraft:jsch:jar) = 0.1.44.1
+BuildRequires : mvn(com.lmax:disruptor:jar) = 3.3.0
+BuildRequires : mvn(com.microsoft.azure:azure-data-lake-store-sdk:jar) = 2.2.9
+BuildRequires : mvn(com.microsoft.azure:azure-keyvault-core:jar) = 1.0.0
+BuildRequires : mvn(com.microsoft.azure:azure-storage:jar) = 7.0.0
+BuildRequires : mvn(com.microsoft.sqlserver:mssql-jdbc:jar) = 6.2.1.jre7
+BuildRequires : mvn(com.nimbusds:nimbus-jose-jwt:jar) = 4.41.1
+BuildRequires : mvn(com.openhtmltopdf:openhtmltopdf-core:jar) = 0.0.1.RC9
+BuildRequires : mvn(com.openhtmltopdf:openhtmltopdf-jsoup-dom-converter:jar) = 0.0.1.RC9
+BuildRequires : mvn(com.openhtmltopdf:openhtmltopdf-pdfbox:jar) = 0.0.1.RC9
+BuildRequires : mvn(com.openhtmltopdf:openhtmltopdf-rtl-support:jar) = 0.0.1.RC9
+BuildRequires : mvn(com.squareup.okhttp3:mockwebserver:jar) = 3.7.0
+BuildRequires : mvn(com.squareup.okio:okio:jar) = 1.12.0
+BuildRequires : mvn(com.sun.jersey:jersey-core:jar) = 1.19
+BuildRequires : mvn(com.sun.jersey:jersey-json:jar) = 1.19
+BuildRequires : mvn(com.sun.jersey:jersey-server:jar) = 1.19
+BuildRequires : mvn(com.sun.jersey:jersey-servlet:jar) = 1.19
+BuildRequires : mvn(com.sun.xml.bind:jaxb-impl:jar) = 2.2.3.1
+BuildRequires : mvn(com.thoughtworks.paranamer:paranamer:jar) = 2.3
+BuildRequires : mvn(com.thoughtworks.qdox:qdox:jar) = 2.0.M7
+BuildRequires : mvn(com.thoughtworks.xstream:xstream:jar) = 1.4.9
+BuildRequires : mvn(com.vladsch.flexmark:flexmark-all:jar) = 0.18.4
+BuildRequires : mvn(com.zaxxer:HikariCP-java7:jar) = 2.4.12
+BuildRequires : mvn(commons-beanutils:commons-beanutils:jar) = 1.7.0
+BuildRequires : mvn(commons-chain:commons-chain:jar) = 1.1
+BuildRequires : mvn(commons-collections:commons-collections:jar) = 3.2
+BuildRequires : mvn(commons-configuration:commons-configuration:jar) = 1.6
+BuildRequires : mvn(commons-daemon:commons-daemon:jar) = 1.0.13
+BuildRequires : mvn(commons-digester:commons-digester:jar) = 1.8
+BuildRequires : mvn(commons-el:commons-el:jar) = 1.0
+BuildRequires : mvn(commons-httpclient:commons-httpclient:jar) = 3.1
+BuildRequires : mvn(commons-net:commons-net:jar) = 3.6
+BuildRequires : mvn(commons-pool:commons-pool:jar) = 1.6
+BuildRequires : mvn(commons-validator:commons-validator:jar) = 1.3.1
+BuildRequires : mvn(de.ruedigermoeller:fst:jar) = 2.50
+BuildRequires : mvn(dnsjava:dnsjava:jar) = 2.1.7
+BuildRequires : mvn(dom4j:dom4j:jar) = 1.1
+BuildRequires : mvn(io.dropwizard.metrics:metrics-core:jar) = 3.2.4
+BuildRequires : mvn(io.netty:netty:jar) = 3.10.5.Final
+BuildRequires : mvn(io.swagger:swagger-annotations:jar) = 1.5.4
+BuildRequires : mvn(javax.activation:javax.activation-api:jar) = 1.2.0
+BuildRequires : mvn(javax.servlet.jsp:jsp-api:jar) = 2.1
+BuildRequires : mvn(javax.servlet:javax.servlet-api:jar) = 3.1.0
+BuildRequires : mvn(javax.servlet:servlet-api:jar) = 2.5
+BuildRequires : mvn(javax.ws.rs:jsr311-api:jar) = 1.1.1
+BuildRequires : mvn(javax.xml.bind:jaxb-api:jar) = 2.2.11
+BuildRequires : mvn(jdiff:jdiff:jar) = 1.0.9
+BuildRequires : mvn(junit:junit:jar) = 3.8.1
+BuildRequires : mvn(ldapsdk:ldapsdk:jar) = 4.1
+BuildRequires : mvn(log4j:log4j:jar) = 1.2.12
+BuildRequires : mvn(logkit:logkit:jar) = 1.0.1
+BuildRequires : mvn(net.java.dev.jets3t:jets3t:jar) = 0.9.0
+BuildRequires : mvn(net.jpountz.lz4:lz4:jar) = 1.2.0
+BuildRequires : mvn(net.minidev:accessors-smart:jar) = 1.2
+BuildRequires : mvn(net.minidev:json-smart:jar) = 2.3
+BuildRequires : mvn(net.sf.ehcache:ehcache:jar) = 2.8.5
+BuildRequires : mvn(net.sf.jtidy:jtidy:jar) = r938
+BuildRequires : mvn(net.sf.kosmosfs:kfs:jar) = 0.3
+BuildRequires : mvn(org.apache.ant:ant-launcher:jar) = 1.8.2
+BuildRequires : mvn(org.apache.ant:ant:jar) = 1.8.2
+BuildRequires : mvn(org.apache.avro:avro-maven-plugin:jar) = 1.7.7
+BuildRequires : mvn(org.apache.commons:commons-compress:jar) = 1.11
+BuildRequires : mvn(org.apache.commons:commons-configuration2:jar) = 2.1.1
+BuildRequires : mvn(org.apache.commons:commons-csv:jar) = 1.0
+BuildRequires : mvn(org.apache.commons:commons-exec:jar) = 1.2
+BuildRequires : mvn(org.apache.commons:commons-math3:jar) = 3.1.1
+BuildRequires : mvn(org.apache.commons:commons-math:jar) = 2.2
+BuildRequires : mvn(org.apache.commons:commons-parent:pom) = 41
+BuildRequires : mvn(org.apache.commons:commons-text:jar) = 1.4
+BuildRequires : mvn(org.apache.curator:curator-framework:jar) = 2.12.0
+BuildRequires : mvn(org.apache.curator:curator-test:jar) = 2.12.0
+BuildRequires : mvn(org.apache.directory.api:api-ldap-codec-core:jar) = 1.0.0.M33
+BuildRequires : mvn(org.apache.directory.api:api-ldap-model:jar) = 1.0.0.M33
+BuildRequires : mvn(org.apache.directory.jdbm:apacheds-jdbm1:jar) = 2.0.0.M3
+BuildRequires : mvn(org.apache.directory.mavibot:mavibot:jar) = 1.0.0.M8
+BuildRequires : mvn(org.apache.directory.project:project:pom) = 35
+BuildRequires : mvn(org.apache.directory.server:apacheds-core-integ:jar) = 2.0.0.M21
+BuildRequires : mvn(org.apache.directory.server:apacheds-core:jar) = 2.0.0.M21
+BuildRequires : mvn(org.apache.directory.server:apacheds-ldif-partition:jar) = 2.0.0.M21
+BuildRequires : mvn(org.apache.directory.server:apacheds-protocol-ldap:jar) = 2.0.0.M21
+BuildRequires : mvn(org.apache.directory.server:apacheds-server-integ:jar) = 2.0.0.M21
+BuildRequires : mvn(org.apache.felix:felix-parent:pom) = 2.1
+BuildRequires : mvn(org.apache.felix:maven-bundle-plugin:jar) = 2.5.0
+BuildRequires : mvn(org.apache.felix:org.apache.felix.bundlerepository:jar) = 1.6.6
+BuildRequires : mvn(org.apache.geronimo.genesis:genesis-java5-flava:pom) = 2.0
+BuildRequires : mvn(org.apache.geronimo.specs:geronimo-jcache_1.0_spec:jar) = 1.0.alpha.1
+BuildRequires : mvn(org.apache.hadoop:hadoop-auth:jar) = 2.5.1
+BuildRequires : mvn(org.apache.hadoop:hadoop-common:jar) = 2.5.1
+BuildRequires : mvn(org.apache.hadoop:hadoop-common:jar:tests) = 2.5.1
+BuildRequires : mvn(org.apache.hadoop:hadoop-hdfs:jar) = 2.5.1
+BuildRequires : mvn(org.apache.hadoop:hadoop-hdfs:jar:tests) = 2.5.1
+BuildRequires : mvn(org.apache.hbase:hbase-common:jar) = 1.2.6
+BuildRequires : mvn(org.apache.htrace:htrace-core4:jar) = 4.1.0.incubating
+BuildRequires : mvn(org.apache.kafka:kafka-clients:jar) = 0.8.2.1
+BuildRequires : mvn(org.apache.kerby:kerb-simplekdc:jar) = 1.0.1
+BuildRequires : mvn(org.apache.maven.doxia:doxia-sink-api:jar) = 1.0
+BuildRequires : mvn(org.apache.maven.doxia:doxia-site-renderer:jar) = 1.0
+BuildRequires : mvn(org.apache.maven.plugins:maven-antrun-plugin:jar) = 1.7
+BuildRequires : mvn(org.apache.maven.plugins:maven-assembly-plugin:jar) = 2.4
+BuildRequires : mvn(org.apache.maven.plugins:maven-compiler-plugin:jar) = 3.1
+BuildRequires : mvn(org.apache.maven.plugins:maven-enforcer-plugin:jar) = 3.0.0.M1
+BuildRequires : mvn(org.apache.maven.plugins:maven-jar-plugin:jar) = 2.4
+BuildRequires : mvn(org.apache.maven.plugins:maven-javadoc-plugin:jar) = 3.0.1
+BuildRequires : mvn(org.apache.maven.plugins:maven-plugins:pom) = 30
+BuildRequires : mvn(org.apache.maven.plugins:maven-remote-resources-plugin:jar) = 1.5
+BuildRequires : mvn(org.apache.maven.plugins:maven-resources-plugin:jar) = 3.0.1
+BuildRequires : mvn(org.apache.maven.plugins:maven-shade-plugin:jar) = 3.2.1
+BuildRequires : mvn(org.apache.maven.plugins:maven-site-plugin:jar) = 3.6
+BuildRequires : mvn(org.apache.maven.plugins:maven-source-plugin:jar) = 2.3
+BuildRequires : mvn(org.apache.maven.plugins:maven-surefire-plugin:jar) = 2.12.4
+BuildRequires : mvn(org.apache.maven.plugins:maven-war-plugin:jar) = 3.1.0
+BuildRequires : mvn(org.apache.maven.reporting:maven-reporting-api:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven.reporting:maven-reporting-api:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven.reporting:maven-reporting-exec:jar) = 1.3
+BuildRequires : mvn(org.apache.maven.reporting:maven-reporting-impl:jar) = 2.1
+BuildRequires : mvn(org.apache.maven.reporting:maven-reporting-impl:jar) = 2.3
+BuildRequires : mvn(org.apache.maven.shared:file-management:jar) = 1.1
+BuildRequires : mvn(org.apache.maven.shared:maven-artifact-transfer:jar) = 0.9.1
+BuildRequires : mvn(org.apache.maven.shared:maven-common-artifact-filters:jar) = 3.0.1
+BuildRequires : mvn(org.apache.maven.shared:maven-dependency-tree:jar) = 2.1
+BuildRequires : mvn(org.apache.maven.shared:maven-filtering:jar) = 3.1.1
+BuildRequires : mvn(org.apache.maven.shared:maven-invoker:jar) = 3.0.0
+BuildRequires : mvn(org.apache.maven.shared:maven-mapping:jar) = 3.0.0
+BuildRequires : mvn(org.apache.maven.shared:maven-repository-builder:jar) = 1.0.alpha.2
+BuildRequires : mvn(org.apache.maven:maven-aether-provider:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-archiver:jar) = 2.5
+BuildRequires : mvn(org.apache.maven:maven-artifact-manager:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-artifact-manager:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-artifact:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-artifact:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-compat:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-core:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-error-diagnostics:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-error-diagnostics:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-model-builder:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-model:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-model:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-monitor:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-monitor:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-parent:pom) = 5
+BuildRequires : mvn(org.apache.maven:maven-plugin-api:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-plugin-api:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-plugin-descriptor:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-plugin-descriptor:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-plugin-parameter-documenter:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-plugin-parameter-documenter:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-plugin-registry:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-plugin-registry:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-plugin-registry:jar) = 2.2.0
+BuildRequires : mvn(org.apache.maven:maven-profile:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-profile:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-project:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-project:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-project:jar) = 2.2.0
+BuildRequires : mvn(org.apache.maven:maven-repository-metadata:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-repository-metadata:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-settings-builder:jar) = 3.0
+BuildRequires : mvn(org.apache.maven:maven-settings:jar) = 2.0.6
+BuildRequires : mvn(org.apache.maven:maven-settings:jar) = 2.0.7
+BuildRequires : mvn(org.apache.maven:maven-toolchain:jar) = 1.0
+BuildRequires : mvn(org.apache.maven:maven:pom) = 2.0.7
+BuildRequires : mvn(org.apache.mina:mina-core:jar) = 2.0.16
+BuildRequires : mvn(org.apache.pdfbox:pdfbox:jar) = 2.0.4
+BuildRequires : mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.antlr:jar) = 2.7.7_5
+BuildRequires : mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.dom4j:jar) = 1.6.1_5
+BuildRequires : mvn(org.apache.servicemix.bundles:org.apache.servicemix.bundles.xpp3:jar) = 1.1.4c_6
+BuildRequires : mvn(org.apache.servicemix:servicemix-pom:pom) = 5
+BuildRequires : mvn(org.apache.sshd:sshd-core:jar) = 1.6.0
+BuildRequires : mvn(org.apache.struts:struts-core:jar) = 1.3.8
+BuildRequires : mvn(org.apache.struts:struts-taglib:jar) = 1.3.8
+BuildRequires : mvn(org.apache.struts:struts-tiles:jar) = 1.3.8
+BuildRequires : mvn(org.apache.velocity:velocity-tools:jar) = 2.0
+BuildRequires : mvn(org.apache.velocity:velocity:jar) = 1.5
+BuildRequires : mvn(org.apache.xbean:xbean-reflect:jar) = 3.7
+BuildRequires : mvn(org.apache.yetus:audience-annotations:jar) = 0.5.0
+BuildRequires : mvn(org.apache.zookeeper:zookeeper:jar) = 3.4.13
+BuildRequires : mvn(org.apache:apache:pom) = 9
+BuildRequires : mvn(org.assertj:assertj-core:jar) = 3.8.0
+BuildRequires : mvn(org.assertj:assertj-parent-pom:pom) = 2.1.6
+BuildRequires : mvn(org.beanshell:bsh:jar) = 2.0b4
+BuildRequires : mvn(org.bouncycastle:bcprov-jdk15on:jar) = 1.52
+BuildRequires : mvn(org.codehaus.jackson:jackson-core-asl:jar) = 1.9.13
+BuildRequires : mvn(org.codehaus.jackson:jackson-mapper-asl:jar) = 1.9.13
+BuildRequires : mvn(org.codehaus.jettison:jettison:jar) = 1.1
+BuildRequires : mvn(org.codehaus.mojo:exec-maven-plugin:jar) = 1.3.1
+BuildRequires : mvn(org.codehaus.mojo:extra-enforcer-rules:jar) = 1.0.beta.3
+BuildRequires : mvn(org.codehaus.mojo:license-maven-plugin:jar) = 1.10
+BuildRequires : mvn(org.codehaus.mojo:mojo-parent:pom) = 33
+BuildRequires : mvn(org.codehaus.plexus:plexus-archiver:jar) = 2.1
+BuildRequires : mvn(org.codehaus.plexus:plexus-compiler-api:jar) = 2.2
+BuildRequires : mvn(org.codehaus.plexus:plexus-compiler-javac:jar) = 2.2
+BuildRequires : mvn(org.codehaus.plexus:plexus-compiler-manager:jar) = 2.2
+BuildRequires : mvn(org.codehaus.plexus:plexus-i18n:jar) = 1.0.beta.7
+BuildRequires : mvn(org.codehaus.plexus:plexus-interactivity-api:jar) = 1.0.alpha.4
+BuildRequires : mvn(org.codehaus.plexus:plexus-io:jar) = 2.0.2
+BuildRequires : mvn(org.codehaus.plexus:plexus-java:jar) = 0.9.8
+BuildRequires : mvn(org.codehaus.plexus:plexus-resources:jar) = 1.0.alpha.7
+BuildRequires : mvn(org.codehaus.plexus:plexus-velocity:jar) = 1.1.7
+BuildRequires : mvn(org.codehaus.plexus:plexus:pom) = 3.3
+BuildRequires : mvn(org.codehaus.woodstox:stax2-api:jar) = 3.1.4
+BuildRequires : mvn(org.easymock:easymock:jar) = 2.4
+BuildRequires : mvn(org.freemarker:freemarker:jar) = 2.3.20
+BuildRequires : mvn(org.fusesource.leveldbjni:leveldbjni-all:jar) = 1.8
+BuildRequires : mvn(org.fusesource:fusesource-pom:pom) = 1.9
+BuildRequires : mvn(org.glassfish.grizzly:grizzly-http-server:jar) = 2.2.21
+BuildRequires : mvn(org.glassfish.grizzly:grizzly-http-servlet:jar) = 2.2.21
+BuildRequires : mvn(org.glassfish.grizzly:grizzly-http:jar) = 2.2.21
+BuildRequires : mvn(org.hamcrest:hamcrest-core:jar) = 1.3
+BuildRequires : mvn(org.hsqldb:hsqldb:jar) = 2.3.4
+BuildRequires : mvn(org.iq80.snappy:snappy:jar) = 0.4
+BuildRequires : mvn(org.jamon:jamon-java-parent:pom) = 2.4.1
+BuildRequires : mvn(org.jamon:jamon-parent:pom) = 2.4.1
+BuildRequires : mvn(org.jamon:jamon-runtime:jar) = 2.4.1
+BuildRequires : mvn(org.javassist:javassist:jar) = 3.18.1.GA
+BuildRequires : mvn(org.jboss:jboss-parent:pom) = 21
+BuildRequires : mvn(org.jdom:jdom2:jar) = 2.0.6
+BuildRequires : mvn(org.jdom:jdom:jar) = 1.1
+BuildRequires : mvn(org.jruby.jcodings:jcodings:jar) = 1.0.13
+BuildRequires : mvn(org.jruby.joni:joni:jar) = 2.1.2
+BuildRequires : mvn(org.json:json:jar) = 20090211
+BuildRequires : mvn(org.mock-server:mockserver-netty:jar) = 3.9.2
+BuildRequires : mvn(org.mockito:mockito-all:jar) = 1.8.5
+BuildRequires : mvn(org.mortbay.jetty:jetty-parent:pom) = 10
+BuildRequires : mvn(org.mortbay.jetty:jetty-util:jar) = 6.1.25
+BuildRequires : mvn(org.mortbay.jetty:jetty:jar) = 6.1.25
+BuildRequires : mvn(org.mortbay.jetty:servlet-api:jar) = 2.5.20081211
+BuildRequires : mvn(org.nibor.autolink:autolink:jar) = 0.6.0
+BuildRequires : mvn(org.nuiton.processor:nuiton-processor:jar) = 1.3
+BuildRequires : mvn(org.objenesis:objenesis:jar) = 2.6
+BuildRequires : mvn(org.ojalgo:ojalgo:jar) = 43.0
+BuildRequires : mvn(org.osgi:org.osgi.compendium:jar) = 4.2.0
+BuildRequires : mvn(org.osgi:org.osgi.core:jar) = 4.1.0
+BuildRequires : mvn(org.ow2.asm:asm:jar) = 6.1.1
+BuildRequires : mvn(org.ow2:ow2:pom) = 1.5
+BuildRequires : mvn(org.skyscreamer:jsonassert:jar) = 1.3.0
+BuildRequires : mvn(org.sonatype.aether:aether-api:jar) = 1.7
+BuildRequires : mvn(org.sonatype.aether:aether-impl:jar) = 1.7
+BuildRequires : mvn(org.sonatype.aether:aether-util:jar) = 1.7
+BuildRequires : mvn(org.sonatype.plexus:plexus-build-api:jar) = 0.0.7
+BuildRequires : mvn(org.sonatype.sisu:sisu-guice:jar:noaop) = 2.1.7
+BuildRequires : mvn(org.sonatype.spice:spice-parent:pom) = 16
+BuildRequires : mvn(org.tukaani:xz:jar) = 1.5
+BuildRequires : mvn(org.vafer:jdependency:jar) = 2.1.1
+BuildRequires : mvn(org.wildfly.openssl:wildfly-openssl:jar) = 1.0.4.Final
+BuildRequires : mvn(org.xerial.snappy:snappy-java:jar) = 1.0.5
+BuildRequires : mvn(org.yaml:snakeyaml:jar) = 1.16
+BuildRequires : mvn(oro:oro:jar) = 2.0.8
+BuildRequires : mvn(sslext:sslext:jar) = 1.2.0
+BuildRequires : mvn(tomcat:jasper-compiler:jar) = 5.5.23
+BuildRequires : mvn(tomcat:jasper-runtime:jar) = 5.5.23
+BuildRequires : mvn(xerces:xercesImpl:jar) = 2.9.1
+BuildRequires : mvn(xml-apis:xml-apis:jar) = 1.0.b2
+BuildRequires : mvn(xmlenc:xmlenc:jar) = 0.52
+BuildRequires : mvn(xmlpull:xmlpull:jar) = 1.1.3.1
+BuildRequires : mvn(xmlunit:xmlunit:jar) = 1.5
+BuildRequires : mvn(xpp3:xpp3_min:jar) = 1.1.4c
 BuildRequires : mvn-aether-core
-BuildRequires : mvn-aliyun-oss-java-sdk
-BuildRequires : mvn-ant
-BuildRequires : mvn-ant-launcher
-BuildRequires : mvn-antlr
 BuildRequires : mvn-aopalliance
-BuildRequires : mvn-apache
-BuildRequires : mvn-asm
-BuildRequires : mvn-assertj-core
-BuildRequires : mvn-assertj-parent-pom
-BuildRequires : mvn-autolink
-BuildRequires : mvn-avalon-framework
-BuildRequires : mvn-avro
-BuildRequires : mvn-aws-java-sdk
-BuildRequires : mvn-azure-data-lake-store-java
-BuildRequires : mvn-azure-keyvault-java
-BuildRequires : mvn-azure-storage-java
-BuildRequires : mvn-backport-util-concurrent
-BuildRequires : mvn-beanshell
-BuildRequires : mvn-bndlib
-BuildRequires : mvn-bouncycastle
 BuildRequires : mvn-cdi-api
-BuildRequires : mvn-cglib
-BuildRequires : mvn-classworlds
-BuildRequires : mvn-codehaus-jackson
-BuildRequires : mvn-commons-beanutils
-BuildRequires : mvn-commons-chain
 BuildRequires : mvn-commons-cli
 BuildRequires : mvn-commons-codec
-BuildRequires : mvn-commons-collections
-BuildRequires : mvn-commons-compress
-BuildRequires : mvn-commons-configuration
-BuildRequires : mvn-commons-configuration2
-BuildRequires : mvn-commons-csv
-BuildRequires : mvn-commons-daemon
-BuildRequires : mvn-commons-digester
-BuildRequires : mvn-commons-el
-BuildRequires : mvn-commons-exec
-BuildRequires : mvn-commons-httpclient
 BuildRequires : mvn-commons-io
 BuildRequires : mvn-commons-lang
 BuildRequires : mvn-commons-lang3
 BuildRequires : mvn-commons-logging
-BuildRequires : mvn-commons-math
-BuildRequires : mvn-commons-math3
-BuildRequires : mvn-commons-net
-BuildRequires : mvn-commons-parent
-BuildRequires : mvn-commons-pool
-BuildRequires : mvn-commons-text
-BuildRequires : mvn-commons-validator
-BuildRequires : mvn-curator
-BuildRequires : mvn-directory-ldap-api
-BuildRequires : mvn-directory-mavibot
-BuildRequires : mvn-directory-project
-BuildRequires : mvn-directory-server
-BuildRequires : mvn-disruptor
-BuildRequires : mvn-dnsjava
-BuildRequires : mvn-dom4j
-BuildRequires : mvn-doxia
-BuildRequires : mvn-doxia-sitetools
-BuildRequires : mvn-easymock
-BuildRequires : mvn-ehcache
-BuildRequires : mvn-enforcer
-BuildRequires : mvn-exec-maven-plugin
-BuildRequires : mvn-extra-enforcer-rules
-BuildRequires : mvn-felix
-BuildRequires : mvn-file-management
-BuildRequires : mvn-findbugs-annotations
-BuildRequires : mvn-flexmark-java
-BuildRequires : mvn-freemarker
-BuildRequires : mvn-fst
-BuildRequires : mvn-genesis
-BuildRequires : mvn-geronimo-jcache_1.0_spec
-BuildRequires : mvn-google
-BuildRequires : mvn-google-collections
-BuildRequires : mvn-grizzly
-BuildRequires : mvn-gson
 BuildRequires : mvn-guava
 BuildRequires : mvn-guice
-BuildRequires : mvn-guice-servlet
-BuildRequires : mvn-hadoop
-BuildRequires : mvn-hamcrest
-BuildRequires : mvn-hbase
-BuildRequires : mvn-hsqldb
-BuildRequires : mvn-htrace
 BuildRequires : mvn-httpcomponents-client
 BuildRequires : mvn-httpcomponents-core
-BuildRequires : mvn-icu4j
-BuildRequires : mvn-jackson-annotations
-BuildRequires : mvn-jackson-bom
-BuildRequires : mvn-jackson-core
-BuildRequires : mvn-jackson-databind
-BuildRequires : mvn-jackson-jaxrs-providers
-BuildRequires : mvn-jackson-module-jaxb-annotations
-BuildRequires : mvn-jackson-modules-base
-BuildRequires : mvn-jackson-parent
-BuildRequires : mvn-jamon-java-parent
-BuildRequires : mvn-jamon-parent
-BuildRequires : mvn-jamon-runtime
-BuildRequires : mvn-java-util
-BuildRequires : mvn-java-xmlbuilder
-BuildRequires : mvn-javassist
-BuildRequires : mvn-javax-servlet
-BuildRequires : mvn-javax.inject
-BuildRequires : mvn-javax.servlet-api
-BuildRequires : mvn-jaxb-api
-BuildRequires : mvn-jaxb-impl
-BuildRequires : mvn-jboss-parent
-BuildRequires : mvn-jcip-annotations
-BuildRequires : mvn-jcodings
-BuildRequires : mvn-jdependency
-BuildRequires : mvn-jdiff
-BuildRequires : mvn-jdom
-BuildRequires : mvn-jdom2
-BuildRequires : mvn-jersey
-BuildRequires : mvn-jersey-json
-BuildRequires : mvn-jets3t
-BuildRequires : mvn-jettison
-BuildRequires : mvn-jetty
-BuildRequires : mvn-jetty-parent
-BuildRequires : mvn-joni
-BuildRequires : mvn-jsch
-BuildRequires : mvn-json
-BuildRequires : mvn-json-io
-BuildRequires : mvn-json-simple
-BuildRequires : mvn-json-smart
-BuildRequires : mvn-jsonassert
 BuildRequires : mvn-jsoup
-BuildRequires : mvn-jsp-api
 BuildRequires : mvn-jsr305
-BuildRequires : mvn-jsr311
-BuildRequires : mvn-jtidy
-BuildRequires : mvn-junit
-BuildRequires : mvn-kafka-clients
-BuildRequires : mvn-kerby
-BuildRequires : mvn-kosmosfs
-BuildRequires : mvn-ldapsdk
-BuildRequires : mvn-leveldbjni
-BuildRequires : mvn-license-maven-plugin
-BuildRequires : mvn-log4j
-BuildRequires : mvn-logback-classic
-BuildRequires : mvn-logback-core
-BuildRequires : mvn-logkit
-BuildRequires : mvn-lz4-java
-BuildRequires : mvn-maven
-BuildRequires : mvn-maven-aether-provider
-BuildRequires : mvn-maven-antrun-plugin
-BuildRequires : mvn-maven-archiver
-BuildRequires : mvn-maven-artifact
-BuildRequires : mvn-maven-artifact-manager
-BuildRequires : mvn-maven-artifact-transfer
-BuildRequires : mvn-maven-bundle-plugin
-BuildRequires : mvn-maven-common-artifact-filters
-BuildRequires : mvn-maven-compat
-BuildRequires : mvn-maven-compiler-plugin
-BuildRequires : mvn-maven-core
-BuildRequires : mvn-maven-error-diagnostics
-BuildRequires : mvn-maven-filtering
-BuildRequires : mvn-maven-invoker
-BuildRequires : mvn-maven-jar-plugin
-BuildRequires : mvn-maven-javadoc-plugin
-BuildRequires : mvn-maven-mapping
-BuildRequires : mvn-maven-model
-BuildRequires : mvn-maven-model-builder
-BuildRequires : mvn-maven-monitor
-BuildRequires : mvn-maven-parent
-BuildRequires : mvn-maven-plugin-api
-BuildRequires : mvn-maven-plugin-descriptor
-BuildRequires : mvn-maven-plugin-parameter-documenter
-BuildRequires : mvn-maven-plugin-registry
-BuildRequires : mvn-maven-plugin-tools
-BuildRequires : mvn-maven-plugins
-BuildRequires : mvn-maven-profile
-BuildRequires : mvn-maven-project
-BuildRequires : mvn-maven-reporting-api
-BuildRequires : mvn-maven-reporting-exec
-BuildRequires : mvn-maven-reporting-impl
-BuildRequires : mvn-maven-repository-builder
-BuildRequires : mvn-maven-repository-metadata
-BuildRequires : mvn-maven-resources-plugin
-BuildRequires : mvn-maven-settings
-BuildRequires : mvn-maven-settings-builder
-BuildRequires : mvn-maven-shade-plugin
-BuildRequires : mvn-maven-shared
-BuildRequires : mvn-maven-shared-utils
-BuildRequires : mvn-maven-site-plugin
-BuildRequires : mvn-maven-source-plugin
-BuildRequires : mvn-maven-surefire
-BuildRequires : mvn-maven-toolchain
-BuildRequires : mvn-maven-war-plugin
-BuildRequires : mvn-metrics
-BuildRequires : mvn-mina
-BuildRequires : mvn-mina-sshd
-BuildRequires : mvn-minimal-json
-BuildRequires : mvn-mockito
-BuildRequires : mvn-mockserver
-BuildRequires : mvn-mojo-parent
-BuildRequires : mvn-mssql-jdbc
-BuildRequires : mvn-mvnplugins
-BuildRequires : mvn-netty
-BuildRequires : mvn-nimbus-jose-jwt
-BuildRequires : mvn-nuiton
-BuildRequires : mvn-objenesis
-BuildRequires : mvn-ojalgo
-BuildRequires : mvn-okhttp
-BuildRequires : mvn-okio
-BuildRequires : mvn-openhtmltopdf-parent
-BuildRequires : mvn-org.apache.felix.bundlerepository
-BuildRequires : mvn-org.osgi.compendium
-BuildRequires : mvn-org.osgi.core
-BuildRequires : mvn-oro
-BuildRequires : mvn-oss-parents
-BuildRequires : mvn-ow2
-BuildRequires : mvn-paranamer
-BuildRequires : mvn-pdfbox
-BuildRequires : mvn-plexus
-BuildRequires : mvn-plexus-archiver
-BuildRequires : mvn-plexus-build-api
 BuildRequires : mvn-plexus-cipher
 BuildRequires : mvn-plexus-classworlds
-BuildRequires : mvn-plexus-compiler
 BuildRequires : mvn-plexus-containers
-BuildRequires : mvn-plexus-i18n
-BuildRequires : mvn-plexus-interactivity
 BuildRequires : mvn-plexus-interpolation
-BuildRequires : mvn-plexus-io
-BuildRequires : mvn-plexus-languages
-BuildRequires : mvn-plexus-resources
 BuildRequires : mvn-plexus-utils
-BuildRequires : mvn-plexus-velocity
-BuildRequires : mvn-protobuf-java
-BuildRequires : mvn-qdox
-BuildRequires : mvn-re2j
-BuildRequires : mvn-servicemix-bundles
-BuildRequires : mvn-servicemix-pom
-BuildRequires : mvn-servlet-api
 BuildRequires : mvn-sisu
-BuildRequires : mvn-sisu-guice
 BuildRequires : mvn-slf4j
-BuildRequires : mvn-snakeyaml
-BuildRequires : mvn-snappy
-BuildRequires : mvn-snappy-java
-BuildRequires : mvn-sonatype-aether
 BuildRequires : mvn-sonatype-plexus-sec-dispatcher
-BuildRequires : mvn-sslext
-BuildRequires : mvn-stax2-api
-BuildRequires : mvn-struts
-BuildRequires : mvn-swagger-core
-BuildRequires : mvn-tomcat
-BuildRequires : mvn-velocity
-BuildRequires : mvn-velocity-tools
 BuildRequires : mvn-wagon
-BuildRequires : mvn-wildfly-openssl
-BuildRequires : mvn-woodstox-core
-BuildRequires : mvn-xbean
-BuildRequires : mvn-xercesImpl
-BuildRequires : mvn-xml-apis
-BuildRequires : mvn-xmlenc
-BuildRequires : mvn-xmlpull
-BuildRequires : mvn-xmlunit
-BuildRequires : mvn-xpp3_min
-BuildRequires : mvn-xstream
-BuildRequires : mvn-xz
-BuildRequires : mvn-yetus
-BuildRequires : mvn-zookeeper
 BuildRequires : openjdk11
 BuildRequires : openjdk11-dev
 BuildRequires : openssl-dev
@@ -381,12 +427,43 @@ export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-mkdir %{buildroot}
-cp -r /usr/share/java/.m2 %{buildroot}/.m2
-mvn --offline -Dmaven.repo.local=%{buildroot}/.m2/repository package -fae -o -Pnative -Pdist -DskipTests -Dtar -Danimal.sniffer.skip=true -Dmaven.javadoc.skip=true -Djavac.version=11 -Dguava.version=19.0 -Dmaven.plugin-tools.version=3.6.0
+mkdir -p %{buildroot}
+mkdir -p ~/.m2
+cp -r /usr/share/java/.m2/* ~/.m2/ || :
+mvn --offline package package -fae -o -Pnative -Pdist -DskipTests -Dtar -Danimal.sniffer.skip=true -Dmaven.javadoc.skip=true -Djavac.version=11 -Dguava.version=19.0 -Dmaven.plugin-tools.version=3.6.0
 
 %install
+## install_prepend content
+rm -rf ./hadoop-hdfs-project/hadoop-hdfs-native-client/target/target
+rm -r ./hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-nodemanager/target/native/target
+rm -rf ./hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-nativetask/target/native/target
+rm -rf ./hadoop-common-project/hadoop-common/target/native/target
+## install_prepend end
 
+mkdir -p %{buildroot}/usr/share/package-licenses/apache-hadoop
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/apache-hadoop/LICENSE.txt
+cp hadoop-common-project/hadoop-common/src/main/native/COPYING %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-common-project_hadoop-common_src_main_native_COPYING
+cp hadoop-hdfs-project/hadoop-hdfs-native-client/src/main/native/libhdfspp/third_party/asio-1.10.2/COPYING %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_asio-1.10.2_COPYING
+cp hadoop-hdfs-project/hadoop-hdfs-native-client/src/main/native/libhdfspp/third_party/gmock-1.7.0/LICENSE %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_gmock-1.7.0_LICENSE
+cp hadoop-hdfs-project/hadoop-hdfs-native-client/src/main/native/libhdfspp/third_party/rapidxml-1.13/rapidxml/license.txt %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_rapidxml-1.13_rapidxml_license.txt
+cp hadoop-hdfs-project/hadoop-hdfs-native-client/src/main/native/libhdfspp/third_party/uriparser2/uriparser2/LICENSE %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_uriparser2_uriparser2_LICENSE
+cp hadoop-hdfs-project/hadoop-hdfs-native-client/src/main/native/libhdfspp/third_party/uriparser2/uriparser2/uriparser/COPYING %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_uriparser2_uriparser2_uriparser_COPYING
+cp hadoop-tools/hadoop-sls/src/main/html/js/thirdparty/d3-LICENSE %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-tools_hadoop-sls_src_main_html_js_thirdparty_d3-LICENSE
+for targetdir in $(find . -type d -name target); do
+pushd $targetdir
+export GROUP_PATH=$(xml sel -t -v '/_:project/_:groupId' -v '/_:project/_:parent/_:groupId' ../pom.xml | sed 's#\.#/#g' | head -1)
+export ARTIFACT_ID=$(xml sel -t -v '/_:project/_:artifactId' ../pom.xml | head -1)
+export VERSION=$(xml sel -t -v '/_:project/_:version' -v '/_:project/_:parent/_:version' ../pom.xml | head -1)
+export DEPLOY_PATH=%{buildroot}/usr/share/java/.m2/repository/${GROUP_PATH}/${ARTIFACT_ID}/${VERSION}
+mkdir -p ${DEPLOY_PATH}
+shopt -s nullglob
+for jarfile in ${ARTIFACT_ID}*.jar; do
+cp -p "${jarfile}" ${DEPLOY_PATH}/
+done
+rm -f ${DEPLOY_PATH}/${ARTIFACT_ID}-${VERSION}-sources.jar
+cp -p ../pom.xml ${DEPLOY_PATH}/${ARTIFACT_ID}-${VERSION}.pom
+popd
+done
 ## install_append content
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/defaults/hadoop
@@ -413,11 +490,16 @@ find %{buildroot}/usr -iname *.orig -delete
 %defattr(-,root,root,-)
 /usr/bin/container-executor
 /usr/bin/hadoop
+/usr/bin/hadoop-functions.sh.orig
+/usr/bin/hadoop.cmd
 /usr/bin/hdfs
+/usr/bin/hdfs.cmd
 /usr/bin/mapred
+/usr/bin/mapred.cmd
 /usr/bin/oom-listener
 /usr/bin/test-container-executor
 /usr/bin/yarn
+/usr/bin/yarn.cmd
 /usr/sbin/FederationStateStore/MySQL/FederationStateStoreDatabase.sql
 /usr/sbin/FederationStateStore/MySQL/FederationStateStoreStoredProcs.sql
 /usr/sbin/FederationStateStore/MySQL/FederationStateStoreTables.sql
@@ -435,15 +517,21 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/sbin/kms.sh
 /usr/sbin/mr-jobhistory-daemon.sh
 /usr/sbin/refresh-namenodes.sh
+/usr/sbin/start-all.cmd
 /usr/sbin/start-all.sh
 /usr/sbin/start-balancer.sh
+/usr/sbin/start-dfs.cmd
 /usr/sbin/start-dfs.sh
 /usr/sbin/start-secure-dns.sh
+/usr/sbin/start-yarn.cmd
 /usr/sbin/start-yarn.sh
+/usr/sbin/stop-all.cmd
 /usr/sbin/stop-all.sh
 /usr/sbin/stop-balancer.sh
+/usr/sbin/stop-dfs.cmd
 /usr/sbin/stop-dfs.sh
 /usr/sbin/stop-secure-dns.sh
+/usr/sbin/stop-yarn.cmd
 /usr/sbin/stop-yarn.sh
 /usr/sbin/workers.sh
 /usr/sbin/yarn-daemon.sh
@@ -455,6 +543,7 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/share/defaults/hadoop/configuration.xsl
 /usr/share/defaults/hadoop/container-executor.cfg
 /usr/share/defaults/hadoop/core-site.xml
+/usr/share/defaults/hadoop/hadoop-env.cmd
 /usr/share/defaults/hadoop/hadoop-env.sh
 /usr/share/defaults/hadoop/hadoop-metrics2.properties
 /usr/share/defaults/hadoop/hadoop-policy.xml
@@ -469,6 +558,7 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/share/defaults/hadoop/kms-log4j.properties
 /usr/share/defaults/hadoop/kms-site.xml
 /usr/share/defaults/hadoop/log4j.properties
+/usr/share/defaults/hadoop/mapred-env.cmd
 /usr/share/defaults/hadoop/mapred-env.sh
 /usr/share/defaults/hadoop/mapred-queues.xml.template
 /usr/share/defaults/hadoop/mapred-site.xml
@@ -477,6 +567,7 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/share/defaults/hadoop/ssl-server.xml.example
 /usr/share/defaults/hadoop/user_ec_policies.xml.template
 /usr/share/defaults/hadoop/workers
+/usr/share/defaults/hadoop/yarn-env.cmd
 /usr/share/defaults/hadoop/yarn-env.sh
 /usr/share/defaults/hadoop/yarn-site.xml
 /usr/share/defaults/hadoop/yarnservice-log4j.properties
@@ -878,8 +969,11 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/share/hadoop/tools/lib/lz4-1.2.0.jar
 /usr/share/hadoop/tools/lib/ojalgo-43.0.jar
 /usr/share/hadoop/tools/lib/wildfly-openssl-1.0.4.Final.jar
+/usr/share/hadoop/tools/resourceestimator/bin/estimator.cmd
 /usr/share/hadoop/tools/resourceestimator/bin/estimator.sh
+/usr/share/hadoop/tools/resourceestimator/bin/start-estimator.cmd
 /usr/share/hadoop/tools/resourceestimator/bin/start-estimator.sh
+/usr/share/hadoop/tools/resourceestimator/bin/stop-estimator.cmd
 /usr/share/hadoop/tools/resourceestimator/bin/stop-estimator.sh
 /usr/share/hadoop/tools/resourceestimator/conf/resourceestimator-config.xml
 /usr/share/hadoop/tools/resourceestimator/data/resourceEstimatorService.txt
@@ -1009,11 +1103,11 @@ find %{buildroot}/usr -iname *.orig -delete
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
 /usr/include/Pipes.hh
 /usr/include/SerialUtils.hh
 /usr/include/StringUtils.hh
 /usr/include/TemplateFactory.hh
+/usr/include/hdfs.h
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -1030,10 +1124,13 @@ find %{buildroot}/usr -iname *.orig -delete
 
 %files libexec
 %defattr(-,root,root,-)
+/usr/libexec/hadoop-config.cmd
 /usr/libexec/hadoop-config.sh
 /usr/libexec/hadoop-functions.sh
 /usr/libexec/hadoop-layout.sh.example
+/usr/libexec/hdfs-config.cmd
 /usr/libexec/hdfs-config.sh
+/usr/libexec/mapred-config.cmd
 /usr/libexec/mapred-config.sh
 /usr/libexec/shellprofile.d/hadoop-aliyun.sh
 /usr/libexec/shellprofile.d/hadoop-archive-logs.sh
@@ -1064,4 +1161,5 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/libexec/tools/hadoop-rumen.sh
 /usr/libexec/tools/hadoop-sls.sh
 /usr/libexec/tools/hadoop-streaming.sh
+/usr/libexec/yarn-config.cmd
 /usr/libexec/yarn-config.sh
