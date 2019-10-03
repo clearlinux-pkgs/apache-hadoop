@@ -4,7 +4,7 @@
 #
 Name     : apache-hadoop
 Version  : 3.2.0
-Release  : 33
+Release  : 34
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Summary  : No detailed summary available
