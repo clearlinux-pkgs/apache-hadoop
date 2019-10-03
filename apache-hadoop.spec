@@ -4,7 +4,7 @@
 #
 Name     : apache-hadoop
 Version  : 3.2.0
-Release  : 32
+Release  : 33
 URL      : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Source0  : http://apache.cs.utah.edu/hadoop/common/hadoop-3.2.0/hadoop-3.2.0-src.tar.gz
 Summary  : No detailed summary available
@@ -14,6 +14,7 @@ Requires: apache-hadoop-bin = %{version}-%{release}
 Requires: apache-hadoop-data = %{version}-%{release}
 Requires: apache-hadoop-lib = %{version}-%{release}
 Requires: apache-hadoop-libexec = %{version}-%{release}
+Requires: apache-hadoop-license = %{version}-%{release}
 BuildRequires : apache-maven
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-mvn
@@ -357,6 +358,7 @@ Summary: bin components for the apache-hadoop package.
 Group: Binaries
 Requires: apache-hadoop-data = %{version}-%{release}
 Requires: apache-hadoop-libexec = %{version}-%{release}
+Requires: apache-hadoop-license = %{version}-%{release}
 
 %description bin
 bin components for the apache-hadoop package.
@@ -396,6 +398,7 @@ Summary: lib components for the apache-hadoop package.
 Group: Libraries
 Requires: apache-hadoop-data = %{version}-%{release}
 Requires: apache-hadoop-libexec = %{version}-%{release}
+Requires: apache-hadoop-license = %{version}-%{release}
 
 %description lib
 lib components for the apache-hadoop package.
@@ -404,9 +407,18 @@ lib components for the apache-hadoop package.
 %package libexec
 Summary: libexec components for the apache-hadoop package.
 Group: Default
+Requires: apache-hadoop-license = %{version}-%{release}
 
 %description libexec
 libexec components for the apache-hadoop package.
+
+
+%package license
+Summary: license components for the apache-hadoop package.
+Group: Default
+
+%description license
+license components for the apache-hadoop package.
 
 
 %prep
@@ -451,9 +463,9 @@ cp hadoop-hdfs-project/hadoop-hdfs-native-client/src/main/native/libhdfspp/third
 cp hadoop-tools/hadoop-sls/src/main/html/js/thirdparty/d3-LICENSE %{buildroot}/usr/share/package-licenses/apache-hadoop/hadoop-tools_hadoop-sls_src_main_html_js_thirdparty_d3-LICENSE
 for targetdir in $(find . -type d -name target); do
 pushd $targetdir
-export GROUP_PATH=$(xml sel -t -v '/_:project/_:groupId' -v '/_:project/_:parent/_:groupId' ../pom.xml | sed 's#\.#/#g' | head -1)
-export ARTIFACT_ID=$(xml sel -t -v '/_:project/_:artifactId' ../pom.xml | head -1)
-export VERSION=$(xml sel -t -v '/_:project/_:version' -v '/_:project/_:parent/_:version' ../pom.xml | head -1)
+export GROUP_PATH=$(xml sel -T -t -m '//_:project' --if 'boolean(_:groupId)' -v '_:groupId' --else -v '_:parent/_:groupId' ../pom.xml | sed 's#\.#/#g')
+export ARTIFACT_ID=$(xml sel -T -t -m '//_:project' -v '_:artifactId' ../pom.xml)
+export VERSION=$(xml sel -T -t -m '//_:project' --if 'boolean(_:version)' -v '_:version' --else -v '_:parent/_:version' ../pom.xml)
 export DEPLOY_PATH=%{buildroot}/usr/share/java/.m2/repository/${GROUP_PATH}/${ARTIFACT_ID}/${VERSION}
 mkdir -p ${DEPLOY_PATH}
 shopt -s nullglob
@@ -465,7 +477,6 @@ cp -p ../pom.xml ${DEPLOY_PATH}/${ARTIFACT_ID}-${VERSION}.pom
 popd
 done
 ## install_append content
-rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/defaults/hadoop
 mkdir -p %{buildroot}/usr/share/doc/hadoop
 tar -xf hadoop-dist/target/hadoop-*.tar.gz -C %{buildroot}/usr --strip-components=1
@@ -1100,6 +1111,280 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/share/hadoop/yarn/yarn-service-examples/httpd/httpd-proxy.conf
 /usr/share/hadoop/yarn/yarn-service-examples/httpd/httpd.json
 /usr/share/hadoop/yarn/yarn-service-examples/sleeper/sleeper.json
+/usr/share/java/.m2/repository/-.pom
+/usr/share/java/.m2/repository/hadoop-fs2img-3.2.0-sources.jar
+/usr/share/java/.m2/repository/hadoop-fs2img-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/hadoop-fs2img-3.2.0.jar
+/usr/share/java/.m2/repository/hadoop-yarn-client-3.2.0-sources.jar
+/usr/share/java/.m2/repository/hadoop-yarn-client-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/hadoop-yarn-client-3.2.0.jar
+/usr/share/java/.m2/repository/hadoop-yarn-server-sharedcachemanager-3.2.0-sources.jar
+/usr/share/java/.m2/repository/hadoop-yarn-server-sharedcachemanager-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/hadoop-yarn-server-sharedcachemanager-3.2.0-tests.jar
+/usr/share/java/.m2/repository/hadoop-yarn-server-sharedcachemanager-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-aliyun/3.2.0/hadoop-aliyun-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-aliyun/3.2.0/hadoop-aliyun-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-aliyun/3.2.0/hadoop-aliyun-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-annotations/3.2.0/hadoop-annotations-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-annotations/3.2.0/hadoop-annotations-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-annotations/3.2.0/hadoop-annotations-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-archive-logs/3.2.0/hadoop-archive-logs-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-archive-logs/3.2.0/hadoop-archive-logs-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-archive-logs/3.2.0/hadoop-archive-logs-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-archives/3.2.0/hadoop-archives-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-archives/3.2.0/hadoop-archives-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-archives/3.2.0/hadoop-archives-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-assemblies/3.2.0/hadoop-assemblies-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-assemblies/3.2.0/hadoop-assemblies-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-assemblies/3.2.0/hadoop-assemblies-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-auth-examples/3.2.0/hadoop-auth-examples-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-auth-examples/3.2.0/hadoop-auth-examples-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-auth/3.2.0/hadoop-auth-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-auth/3.2.0/hadoop-auth-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-auth/3.2.0/hadoop-auth-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-auth/3.2.0/hadoop-auth-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure-datalake/3.2.0/hadoop-azure-datalake-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure-datalake/3.2.0/hadoop-azure-datalake-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure-datalake/3.2.0/hadoop-azure-datalake-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure-datalake/3.2.0/hadoop-azure-datalake-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure/3.2.0/hadoop-azure-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure/3.2.0/hadoop-azure-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure/3.2.0/hadoop-azure-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-azure/3.2.0/hadoop-azure-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-build-tools/3.2.0/hadoop-build-tools-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-build-tools/3.2.0/hadoop-build-tools-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-api/3.2.0/hadoop-client-api-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-api/3.2.0/hadoop-client-api-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-check-invariants/3.2.0/hadoop-client-check-invariants-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-check-test-invariants/3.2.0/hadoop-client-check-test-invariants-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-integration-tests/3.2.0/hadoop-client-integration-tests-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-integration-tests/3.2.0/hadoop-client-integration-tests-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-integration-tests/3.2.0/hadoop-client-integration-tests-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-minicluster/3.2.0/hadoop-client-minicluster-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-minicluster/3.2.0/hadoop-client-minicluster-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-modules/3.2.0/hadoop-client-modules-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-runtime/3.2.0/hadoop-client-runtime-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client-runtime/3.2.0/hadoop-client-runtime-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client/3.2.0/hadoop-client-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client/3.2.0/hadoop-client-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client/3.2.0/hadoop-client-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-client/3.2.0/hadoop-client-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-cloud-storage-project/3.2.0/hadoop-cloud-storage-project-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-cloud-storage/3.2.0/hadoop-cloud-storage-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-cloud-storage/3.2.0/hadoop-cloud-storage-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-cloud-storage/3.2.0/hadoop-cloud-storage-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-common-project/3.2.0/hadoop-common-project-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-common/3.2.0/hadoop-common-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-common/3.2.0/hadoop-common-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-common/3.2.0/hadoop-common-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-common/3.2.0/hadoop-common-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-datajoin/3.2.0/hadoop-datajoin-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-datajoin/3.2.0/hadoop-datajoin-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-datajoin/3.2.0/hadoop-datajoin-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-dist/3.2.0/hadoop-dist-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-distcp/3.2.0/hadoop-distcp-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-distcp/3.2.0/hadoop-distcp-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-distcp/3.2.0/hadoop-distcp-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-distcp/3.2.0/hadoop-distcp-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-extras/3.2.0/hadoop-extras-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-extras/3.2.0/hadoop-extras-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-extras/3.2.0/hadoop-extras-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-gridmix/3.2.0/hadoop-gridmix-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-gridmix/3.2.0/hadoop-gridmix-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-gridmix/3.2.0/hadoop-gridmix-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/3.2.0/hadoop-hdfs-client-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/3.2.0/hadoop-hdfs-client-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/3.2.0/hadoop-hdfs-client-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/3.2.0/hadoop-hdfs-client-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-httpfs/3.2.0/hadoop-hdfs-httpfs-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-httpfs/3.2.0/hadoop-hdfs-httpfs-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-httpfs/3.2.0/hadoop-hdfs-httpfs-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-native-client/3.2.0/hadoop-hdfs-native-client-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-native-client/3.2.0/hadoop-hdfs-native-client-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-native-client/3.2.0/hadoop-hdfs-native-client-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-native-client/3.2.0/hadoop-hdfs-native-client-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-nfs/3.2.0/hadoop-hdfs-nfs-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-nfs/3.2.0/hadoop-hdfs-nfs-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-nfs/3.2.0/hadoop-hdfs-nfs-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-project/3.2.0/hadoop-hdfs-project-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-rbf/3.2.0/hadoop-hdfs-rbf-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-rbf/3.2.0/hadoop-hdfs-rbf-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-rbf/3.2.0/hadoop-hdfs-rbf-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs-rbf/3.2.0/hadoop-hdfs-rbf-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs/3.2.0/hadoop-hdfs-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs/3.2.0/hadoop-hdfs-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs/3.2.0/hadoop-hdfs-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-hdfs/3.2.0/hadoop-hdfs-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kafka/3.2.0/hadoop-kafka-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kafka/3.2.0/hadoop-kafka-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kafka/3.2.0/hadoop-kafka-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kms/3.2.0/hadoop-kms-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kms/3.2.0/hadoop-kms-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kms/3.2.0/hadoop-kms-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-kms/3.2.0/hadoop-kms-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-app/3.2.0/hadoop-mapreduce-client-app-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-app/3.2.0/hadoop-mapreduce-client-app-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-app/3.2.0/hadoop-mapreduce-client-app-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-app/3.2.0/hadoop-mapreduce-client-app-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-common/3.2.0/hadoop-mapreduce-client-common-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-common/3.2.0/hadoop-mapreduce-client-common-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-common/3.2.0/hadoop-mapreduce-client-common-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-core/3.2.0/hadoop-mapreduce-client-core-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-core/3.2.0/hadoop-mapreduce-client-core-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-core/3.2.0/hadoop-mapreduce-client-core-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-core/3.2.0/hadoop-mapreduce-client-core-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-hs-plugins/3.2.0/hadoop-mapreduce-client-hs-plugins-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-hs-plugins/3.2.0/hadoop-mapreduce-client-hs-plugins-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-hs-plugins/3.2.0/hadoop-mapreduce-client-hs-plugins-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-hs/3.2.0/hadoop-mapreduce-client-hs-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-hs/3.2.0/hadoop-mapreduce-client-hs-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-hs/3.2.0/hadoop-mapreduce-client-hs-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/3.2.0/hadoop-mapreduce-client-jobclient-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/3.2.0/hadoop-mapreduce-client-jobclient-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/3.2.0/hadoop-mapreduce-client-jobclient-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/3.2.0/hadoop-mapreduce-client-jobclient-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-nativetask/3.2.0/hadoop-mapreduce-client-nativetask-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-nativetask/3.2.0/hadoop-mapreduce-client-nativetask-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-nativetask/3.2.0/hadoop-mapreduce-client-nativetask-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-shuffle/3.2.0/hadoop-mapreduce-client-shuffle-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-shuffle/3.2.0/hadoop-mapreduce-client-shuffle-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-shuffle/3.2.0/hadoop-mapreduce-client-shuffle-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-uploader/3.2.0/hadoop-mapreduce-client-uploader-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-uploader/3.2.0/hadoop-mapreduce-client-uploader-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client-uploader/3.2.0/hadoop-mapreduce-client-uploader-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-client/3.2.0/hadoop-mapreduce-client-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-examples/3.2.0/hadoop-mapreduce-examples-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-examples/3.2.0/hadoop-mapreduce-examples-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce-examples/3.2.0/hadoop-mapreduce-examples-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-mapreduce/3.2.0/hadoop-mapreduce-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-maven-plugins/3.2.0/hadoop-maven-plugins-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-maven-plugins/3.2.0/hadoop-maven-plugins-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-maven-plugins/3.2.0/hadoop-maven-plugins-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-minicluster/3.2.0/hadoop-minicluster-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-minicluster/3.2.0/hadoop-minicluster-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-minicluster/3.2.0/hadoop-minicluster-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-minikdc/3.2.0/hadoop-minikdc-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-minikdc/3.2.0/hadoop-minikdc-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-minikdc/3.2.0/hadoop-minikdc-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-nfs/3.2.0/hadoop-nfs-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-nfs/3.2.0/hadoop-nfs-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-nfs/3.2.0/hadoop-nfs-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-openstack/3.2.0/hadoop-openstack-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-openstack/3.2.0/hadoop-openstack-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-openstack/3.2.0/hadoop-openstack-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-pipes/3.2.0/hadoop-pipes-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-project-dist/3.2.0/hadoop-project-dist-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-project-dist/3.2.0/hadoop-project-dist-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-project-dist/3.2.0/hadoop-project-dist-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-project/3.2.0/hadoop-project-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-resourceestimator/3.2.0/hadoop-resourceestimator-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-resourceestimator/3.2.0/hadoop-resourceestimator-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-resourceestimator/3.2.0/hadoop-resourceestimator-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-rumen/3.2.0/hadoop-rumen-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-rumen/3.2.0/hadoop-rumen-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-rumen/3.2.0/hadoop-rumen-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-sls/3.2.0/hadoop-sls-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-sls/3.2.0/hadoop-sls-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-sls/3.2.0/hadoop-sls-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-streaming/3.2.0/hadoop-streaming-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-streaming/3.2.0/hadoop-streaming-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-streaming/3.2.0/hadoop-streaming-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-tools-dist/3.2.0/hadoop-tools-dist-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-tools-dist/3.2.0/hadoop-tools-dist-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-tools-dist/3.2.0/hadoop-tools-dist-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-tools-dist/3.2.0/hadoop-tools-dist-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-tools/3.2.0/hadoop-tools-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-api/3.2.0/hadoop-yarn-api-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-api/3.2.0/hadoop-yarn-api-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-api/3.2.0/hadoop-yarn-api-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-api/3.2.0/hadoop-yarn-api-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications-distributedshell/3.2.0/hadoop-yarn-applications-distributedshell-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications-distributedshell/3.2.0/hadoop-yarn-applications-distributedshell-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications-distributedshell/3.2.0/hadoop-yarn-applications-distributedshell-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications-unmanaged-am-launcher/3.2.0/hadoop-yarn-applications-unmanaged-am-launcher-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications-unmanaged-am-launcher/3.2.0/hadoop-yarn-applications-unmanaged-am-launcher-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications-unmanaged-am-launcher/3.2.0/hadoop-yarn-applications-unmanaged-am-launcher-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-applications/3.2.0/hadoop-yarn-applications-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-common/3.2.0/hadoop-yarn-common-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-common/3.2.0/hadoop-yarn-common-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-common/3.2.0/hadoop-yarn-common-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-common/3.2.0/hadoop-yarn-common-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-project/3.2.0/hadoop-yarn-project-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-registry/3.2.0/hadoop-yarn-registry-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-registry/3.2.0/hadoop-yarn-registry-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-registry/3.2.0/hadoop-yarn-registry-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-registry/3.2.0/hadoop-yarn-registry-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-applicationhistoryservice/3.2.0/hadoop-yarn-server-applicationhistoryservice-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-applicationhistoryservice/3.2.0/hadoop-yarn-server-applicationhistoryservice-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-applicationhistoryservice/3.2.0/hadoop-yarn-server-applicationhistoryservice-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-applicationhistoryservice/3.2.0/hadoop-yarn-server-applicationhistoryservice-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-common/3.2.0/hadoop-yarn-server-common-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-common/3.2.0/hadoop-yarn-server-common-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-common/3.2.0/hadoop-yarn-server-common-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-common/3.2.0/hadoop-yarn-server-common-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-nodemanager/3.2.0/hadoop-yarn-server-nodemanager-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-nodemanager/3.2.0/hadoop-yarn-server-nodemanager-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-nodemanager/3.2.0/hadoop-yarn-server-nodemanager-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-resourcemanager/3.2.0/hadoop-yarn-server-resourcemanager-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-resourcemanager/3.2.0/hadoop-yarn-server-resourcemanager-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-resourcemanager/3.2.0/hadoop-yarn-server-resourcemanager-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-resourcemanager/3.2.0/hadoop-yarn-server-resourcemanager-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-router/3.2.0/hadoop-yarn-server-router-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-router/3.2.0/hadoop-yarn-server-router-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-router/3.2.0/hadoop-yarn-server-router-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-tests/3.2.0/hadoop-yarn-server-tests-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-tests/3.2.0/hadoop-yarn-server-tests-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-tests/3.2.0/hadoop-yarn-server-tests-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-tests/3.2.0/hadoop-yarn-server-tests-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timeline-pluginstorage/3.2.0/hadoop-yarn-server-timeline-pluginstorage-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timeline-pluginstorage/3.2.0/hadoop-yarn-server-timeline-pluginstorage-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timeline-pluginstorage/3.2.0/hadoop-yarn-server-timeline-pluginstorage-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timeline-pluginstorage/3.2.0/hadoop-yarn-server-timeline-pluginstorage-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-client/3.2.0/hadoop-yarn-server-timelineservice-hbase-client-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-client/3.2.0/hadoop-yarn-server-timelineservice-hbase-client-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-client/3.2.0/hadoop-yarn-server-timelineservice-hbase-client-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-client/3.2.0/hadoop-yarn-server-timelineservice-hbase-client-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-common/3.2.0/hadoop-yarn-server-timelineservice-hbase-common-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-common/3.2.0/hadoop-yarn-server-timelineservice-hbase-common-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-common/3.2.0/hadoop-yarn-server-timelineservice-hbase-common-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-common/3.2.0/hadoop-yarn-server-timelineservice-hbase-common-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-server-1/3.2.0/hadoop-yarn-server-timelineservice-hbase-server-1-3.2.0-coprocessor.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-server-1/3.2.0/hadoop-yarn-server-timelineservice-hbase-server-1-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-server-1/3.2.0/hadoop-yarn-server-timelineservice-hbase-server-1-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-server-1/3.2.0/hadoop-yarn-server-timelineservice-hbase-server-1-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-server/3.2.0/hadoop-yarn-server-timelineservice-hbase-server-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-tests/3.2.0/hadoop-yarn-server-timelineservice-hbase-tests-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-tests/3.2.0/hadoop-yarn-server-timelineservice-hbase-tests-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-tests/3.2.0/hadoop-yarn-server-timelineservice-hbase-tests-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase-tests/3.2.0/hadoop-yarn-server-timelineservice-hbase-tests-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice-hbase/3.2.0/hadoop-yarn-server-timelineservice-hbase-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice/3.2.0/hadoop-yarn-server-timelineservice-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice/3.2.0/hadoop-yarn-server-timelineservice-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice/3.2.0/hadoop-yarn-server-timelineservice-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-timelineservice/3.2.0/hadoop-yarn-server-timelineservice-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-web-proxy/3.2.0/hadoop-yarn-server-web-proxy-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-web-proxy/3.2.0/hadoop-yarn-server-web-proxy-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-web-proxy/3.2.0/hadoop-yarn-server-web-proxy-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server-web-proxy/3.2.0/hadoop-yarn-server-web-proxy-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-server/3.2.0/hadoop-yarn-server-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-api/3.2.0/hadoop-yarn-services-api-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-api/3.2.0/hadoop-yarn-services-api-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-api/3.2.0/hadoop-yarn-services-api-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-api/3.2.0/hadoop-yarn-services-api-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-core/3.2.0/hadoop-yarn-services-core-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-core/3.2.0/hadoop-yarn-services-core-3.2.0-tests.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-core/3.2.0/hadoop-yarn-services-core-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services-core/3.2.0/hadoop-yarn-services-core-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-services/3.2.0/hadoop-yarn-services-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-site/3.2.0/hadoop-yarn-site-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-submarine/3.2.0/hadoop-yarn-submarine-3.2.0-test-sources.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-submarine/3.2.0/hadoop-yarn-submarine-3.2.0.jar
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-submarine/3.2.0/hadoop-yarn-submarine-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn-ui/3.2.0/hadoop-yarn-ui-3.2.0.pom
+/usr/share/java/.m2/repository/org/apache/hadoop/hadoop-yarn/3.2.0/hadoop-yarn-3.2.0.pom
 
 %files dev
 %defattr(-,root,root,-)
@@ -1163,3 +1448,14 @@ find %{buildroot}/usr -iname *.orig -delete
 /usr/libexec/tools/hadoop-streaming.sh
 /usr/libexec/yarn-config.cmd
 /usr/libexec/yarn-config.sh
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/apache-hadoop/LICENSE.txt
+/usr/share/package-licenses/apache-hadoop/hadoop-common-project_hadoop-common_src_main_native_COPYING
+/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_asio-1.10.2_COPYING
+/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_gmock-1.7.0_LICENSE
+/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_rapidxml-1.13_rapidxml_license.txt
+/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_uriparser2_uriparser2_LICENSE
+/usr/share/package-licenses/apache-hadoop/hadoop-hdfs-project_hadoop-hdfs-native-client_src_main_native_libhdfspp_third_party_uriparser2_uriparser2_uriparser_COPYING
+/usr/share/package-licenses/apache-hadoop/hadoop-tools_hadoop-sls_src_main_html_js_thirdparty_d3-LICENSE
